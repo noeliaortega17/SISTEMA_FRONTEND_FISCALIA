@@ -14,6 +14,16 @@ import { UnidadService } from 'src/app/modules/unidad/services/unidad.service';
 import { Unidad } from '@core/models/Unidad';
 import { Funcionario } from '@core/models/Funcionario';
 import { FuncionarioService } from 'src/app/modules/funcionario/services/funcionario.service';
+import { Tipoobjecion } from '@core/models/Tipoobjecion';
+import { Userprofile } from '@core/models/Userprofile';
+import { TipoobjecionService } from 'src/app/modules/tipoobjecion/services/tipoobjecion.service';
+import { UserprofileService } from 'src/app/modules/usuarioperfil/services/usuarioperfil.service';
+import { Rodesestimacion } from '@core/models/Rodesestimacion';
+import { Rorechazo } from '@core/models/Rorechazo';
+import { Rosobreseimiento } from '@core/models/Rosobreseimiento';
+import { DesestimacionService } from 'src/app/modules/registroobjecion/desestimacion/services/desestimacion.service';
+import { RechzoService } from 'src/app/modules/registroobjecion/rechzo/services/rechzo.service';
+import { SobreseimientoService } from 'src/app/modules/registroobjecion/sobreseimiento/services/sobreseimiento.service';
 import { TipoDelitoService } from 'src/app/modules/tipodelito/services/tipodelito.service';
 import { TipoDelito } from '@core/models/TipoDelito';
 import { PerfilService } from 'src/app/modules/perfil/services/perfil.service';
@@ -33,8 +43,8 @@ import { Desarchivo } from '@core/models/Desarchivo';
 export class ToolbarComponent {
 
 
-  @Input() serviceGeneric: PersonService | UsuarioService | CargoService | UnidadService |  FuncionarioService | PerfilService | TipoDelitoService | DelitoService | DesarchivoService | null  = null;
-  @Input() object: Person | User | Cargo | Unidad | Funcionario | Perfil | TipoDelito | Delito | Desarchivo | null = null;
+  @Input() serviceGeneric: PersonService | UsuarioService | CargoService | UnidadService |  FuncionarioService | PerfilService | TipoDelitoService | DelitoService | DesarchivoService | TipoobjecionService| UserprofileService | DesestimacionService | RechzoService | SobreseimientoService  |null  = null;
+  @Input() object: Person | User | Cargo | Unidad | Funcionario | Tipoobjecion | Userprofile | Rodesestimacion | Rorechazo | Rosobreseimiento | Perfil | TipoDelito | Delito | Desarchivo | null = null;
   tableComponent: any;
   formComponent: any;
   modalDeleteComponent: any;

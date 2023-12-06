@@ -30,6 +30,31 @@ const routes: Routes = [
     
   },
   {
+    path: 'tipoobjeciones',
+    loadComponent: () => import('./modules/tipoobjecion/tipoobjecion.component').then(c => c.TipoobjecionComponent)
+    
+  },
+  {
+    path: 'usuarioperfiles',
+    loadComponent: () => import('./modules/usuarioperfil/usuarioperfil.component').then(c => c.UsuarioperfilComponent)
+    
+  },
+  {
+    path: 'desestimaciones',
+    loadComponent: () => import('./modules/registroobjecion/desestimacion/desestimacion.component').then(c => c.DesestimacionComponent)
+    
+  },
+  {
+    path: 'rechzos',
+    loadComponent: () => import('./modules/registroobjecion/rechzo/rechzo.component').then(c => c.RechzoComponent)
+    
+  },
+  {
+    path: 'sobreseimientos',
+    loadComponent: () => import('./modules/registroobjecion/sobreseimiento/sobreseimiento.component').then(c => c.SobreseimientoComponent)
+    
+  },
+  {
     path: 'perfiles',
     loadComponent: () => import('./modules/perfil/perfil.component').then(c => c.PerfilComponent)
     
