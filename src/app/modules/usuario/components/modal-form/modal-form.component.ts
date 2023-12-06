@@ -1,9 +1,11 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HelpersService } from '@core/services/helpers.service';
 import { UsuarioService } from '../../services/usuario.service';
 import { User } from '@core/models/User';
 import { TableComponent } from '../table/table.component';
+import { FuncionarioService } from 'src/app/modules/funcionario/services/funcionario.service';
+import { Funcionario } from '@core/models/Funcionario';
 
 @Component({
   selector: 'app-modal-form',
@@ -16,6 +18,7 @@ export class ModalFormComponent {
   private formBuilder = inject(FormBuilder);
   private helpersService = inject(HelpersService);
   private userService = inject(UsuarioService);
+  private funcionarioService = inject(FuncionarioService);
 
 
   ngOnInit() {
@@ -23,6 +26,8 @@ export class ModalFormComponent {
     this.userService.eventTableComponent.subscribe((tableComponent) => {
       this.tableComponent = tableComponent;
     });
+
+    this.getAllFuncionarios();
   };
 
   user!: User; 
@@ -31,13 +36,28 @@ export class ModalFormComponent {
   tableComponent!: TableComponent;
   isLoading = false;
 
+  funcionarios = signal<Funcionario[]>([]);
+
   public formUser: FormGroup = this.formBuilder.group({
     id: [],
     usuario: [, Validators.required,],
+    contrasena: [, Validators.required,],
     idFuncionario: {
       id: [, Validators.required,],
     }
   });
+
+  getAllFuncionarios() {
+    this.funcionarioService.getAll().subscribe({
+      next: (res) => { 
+        this.funcionarios.set(res);
+      },
+      error: (err) => { 
+        console.log(err);
+        this.helpersService.messageNotification("error", err.error.error, err.error.message, 3000);
+      }
+    })
+  }
 
   hideModal() {
     this.openModal = false;
@@ -46,13 +66,13 @@ export class ModalFormComponent {
 
   openCreate(){
     this.reset();
-    this.tittleForm = "Nueva Persona";
+    this.tittleForm = "Nuevo Usuario";
     this.openModal = true;
   };
 
   openEdit(id: number ){
     this.reset();
-    this.tittleForm="Editar Persona";
+    this.tittleForm="Editar Usuario";
     this.userService.getById(id).subscribe({
       next: (res) => {
         this.user = res;
@@ -89,7 +109,7 @@ export class ModalFormComponent {
     this.userService.create(data).subscribe({
       next: (res) => { 
         this.tableComponent.reload();
-        this.helpersService.messageNotification("success", "Correcto", `El usuario ${res.usuario} ha sido creada.`, 3000);
+        this.helpersService.messageNotification("success", "Correcto", `El usuario ${res.id} ha sido creada.`, 3000);
         this.hideModal();
         this.reset();
       },
@@ -108,8 +128,8 @@ export class ModalFormComponent {
     this.userService.update(idParameter, data).subscribe({
         next: (res) => { 
           this.tableComponent.reload();
-          this.tableComponent.selectedPerson.set( res );
-          this.helpersService.messageNotification("success", "Correcto", `El usuario ${res.usuario} ha sido actualizada.`, 3000);
+          this.tableComponent.selectedUser.set( res );
+          this.helpersService.messageNotification("success", "Correcto", `El usuario ${res.id} ha sido actualizada.`, 3000);
           this.hideModal();
           this.reset();
         },

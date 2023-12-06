@@ -10,7 +10,7 @@
                
                     <div class="form-group field mt-6">
                         <span class="p-float-label">
-                            <input type="text" pInputText id="usuario" [(ngModel)]="user.usuario" formControlName="usuario" class="p-inputtext-sm capitalize mt-1" />
+                            <p-dropdown [options]="funcionarios()" [(ngModel)]="user.usuario" placeholder="Selecione un funcionario" optionLabel="idPersona.nombre" type="text" pInputText id="usuario"  formControlName="usuario" class="p-inputtext-sm capitalize mt-1" />
                             <label htmlFor="usuario" class="text-lg font-bold text-800"><span class="text-red-500">*</span> Nombre</label>
                         </span>
                         <small class="p-error block mt-2" *ngIf="formUser.controls['usuario'].touched && formUser.get('usuario')?.hasError('required')" >El campo Usuario es obligatorio</small>
