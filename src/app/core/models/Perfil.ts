@@ -1,4 +1,4 @@
-export class Cargo  {
+export class Perfil{
     activo:              boolean | null = null;
     fecha_creacion:      string | null = null;
     fecha_modificacion:  string | null = null;
@@ -8,5 +8,4 @@ export class Cargo  {
     usuario_eliminacion: number | null = null;
     id:                  number | null = null;
     descripcion:         string | null = null;
-    item:                number | null = null;
 }

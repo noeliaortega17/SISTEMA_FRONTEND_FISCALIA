@@ -14,6 +14,14 @@ import { UnidadService } from 'src/app/modules/unidad/services/unidad.service';
 import { Unidad } from '@core/models/Unidad';
 import { Funcionario } from '@core/models/Funcionario';
 import { FuncionarioService } from 'src/app/modules/funcionario/services/funcionario.service';
+import { TipoDelitoService } from 'src/app/modules/tipodelito/services/tipodelito.service';
+import { TipoDelito } from '@core/models/TipoDelito';
+import { PerfilService } from 'src/app/modules/perfil/services/perfil.service';
+import { Perfil } from '@core/models/Perfil';
+import { DelitoService } from 'src/app/modules/delito/services/delito.service';
+import { Delito } from '@core/models/Delito';
+import { DesarchivoService } from 'src/app/modules/desarchivo/services/desarchivo.service';
+import { Desarchivo } from '@core/models/Desarchivo';
 
 @Component({
   selector: 'app-toolbar-common',
@@ -25,8 +33,8 @@ import { FuncionarioService } from 'src/app/modules/funcionario/services/funcion
 export class ToolbarComponent {
 
 
-  @Input() serviceGeneric: PersonService | UsuarioService | CargoService | UnidadService | FuncionarioService | null  = null;
-  @Input() object: Person | User | Cargo | Unidad | Funcionario | null = null;
+  @Input() serviceGeneric: PersonService | UsuarioService | CargoService | UnidadService |  FuncionarioService | PerfilService | TipoDelitoService | DelitoService | DesarchivoService | null  = null;
+  @Input() object: Person | User | Cargo | Unidad | Funcionario | Perfil | TipoDelito | Delito | Desarchivo | null = null;
   tableComponent: any;
   formComponent: any;
   modalDeleteComponent: any;

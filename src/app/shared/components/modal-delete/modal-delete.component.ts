@@ -10,6 +10,10 @@ import { CargoService } from 'src/app/modules/cargo/services/cargo.service';
 import { UsuarioService } from 'src/app/modules/usuario/services/usuario.service';
 import { FuncionarioService } from 'src/app/modules/funcionario/services/funcionario.service';
 import { UnidadService } from 'src/app/modules/unidad/services/unidad.service';
+import { PerfilService } from 'src/app/modules/perfil/services/perfil.service';
+import { TipoDelitoService } from 'src/app/modules/tipodelito/services/tipodelito.service';
+import { DelitoService } from 'src/app/modules/delito/services/delito.service';
+import { DesarchivoService } from 'src/app/modules/desarchivo/services/desarchivo.service';
 
 @Component({
   selector: 'app-modal-delete',
@@ -19,7 +23,7 @@ import { UnidadService } from 'src/app/modules/unidad/services/unidad.service';
   styles: []
 })
 export class ModaldeleteComponent implements OnInit {
-  @Input() serviceGeneric!: PersonService | CargoService | UsuarioService | FuncionarioService | UnidadService | null;
+  @Input() serviceGeneric!: PersonService | CargoService | UsuarioService | FuncionarioService | UnidadService | PerfilService | TipoDelitoService | DelitoService | DesarchivoService | null;
   @Input() object: number | any;
   // tableComponent: any;
 

@@ -1,5 +1,7 @@
-export class Cargo  {
-    activo:              boolean | null = null;
+import { TipoDelito } from "./TipoDelito";
+
+export class Delito {
+    activo:            boolean | null = null;
     fecha_creacion:      string | null = null;
     fecha_modificacion:  string | null = null;
     fecha_eliminacion:   string | null = null;
@@ -8,5 +10,5 @@ export class Cargo  {
     usuario_eliminacion: number | null = null;
     id:                  number | null = null;
     descripcion:         string | null = null;
-    item:                number | null = null;
+    idTipoDelito:    TipoDelito | null = null;
 }
