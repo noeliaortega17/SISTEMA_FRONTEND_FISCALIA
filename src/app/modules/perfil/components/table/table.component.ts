@@ -1,8 +1,7 @@
 import { Component, EventEmitter, Output, inject, signal } from '@angular/core';
-import { User } from '@core/models/User';
-import { UsuarioService } from '../../services/usuario.service';
+import { Perfil } from '@core/models/Perfil';
+import { PerfilService } from '../../services/perfil.service';
 import { HelpersService } from '@core/services/helpers.service';
-import { ModalFormComponent } from '../modal-form/modal-form.component';
 import { Table } from 'primeng/table';
 
 @Component({
@@ -12,24 +11,20 @@ import { Table } from 'primeng/table';
   ]
 })
 export class TableComponent {
+  @Output() rowSelected = new EventEmitter<Perfil>();
 
-  @Output() rowSelected = new EventEmitter<User>();
-
-  // private enterpriseComponent = inject(EnterprisesComponent); 
-  private userService = inject(UsuarioService);
+  private perfilService = inject(PerfilService);
   private helpersService = inject(HelpersService);
 
-  users = signal<User[]>([]);
-  selectedUser = signal<User>(new User);
+  perfiles = signal<Perfil[]>([]);
+  selectedPerfil = signal<Perfil>(new Perfil);
   firstPage = 0;
   rows = 5;
   optionsPage = signal([5, 10, 20]);
   loading = signal(false);
 
-  formComponent!: ModalFormComponent; // esto no esta en el ejemplo funcionario 
-
   ngOnInit() {
-    this.userService.eventTableComponent.emit(this);
+    this.perfilService.eventTableComponent.emit(this);
     this.getAll();
     this.helpersService.reloadGeneric.subscribe( () => {
       this.reload();
@@ -38,9 +33,9 @@ export class TableComponent {
 
   getAll(): void {
     this.loading.set(true);
-    this.userService.getAll().subscribe({
+    this.perfilService.getAll().subscribe({
       next: (res) => { 
-        this.users.set(res);
+        this.perfiles.set(res);
         this.loading.set(false);
       },
       error: (err) => { 
@@ -64,13 +59,12 @@ export class TableComponent {
   } 
   
   onRowSelect(event: any) {
-    this.selectedUser.set(event.data);
-    this.rowSelected.emit(this.selectedUser());
+    this.selectedPerfil.set(event.data);
+    this.rowSelected.emit(this.selectedPerfil());
   }
 
   onRowUnselect() {
-    this.selectedUser.set(new User);
-    this.rowSelected.emit(this.selectedUser());
-  }   
-
+    this.selectedPerfil.set(new Perfil);
+    this.rowSelected.emit(this.selectedPerfil());
+  }
 }

@@ -24,6 +24,14 @@ import { Rosobreseimiento } from '@core/models/Rosobreseimiento';
 import { DesestimacionService } from 'src/app/modules/registroobjecion/desestimacion/services/desestimacion.service';
 import { RechzoService } from 'src/app/modules/registroobjecion/rechzo/services/rechzo.service';
 import { SobreseimientoService } from 'src/app/modules/registroobjecion/sobreseimiento/services/sobreseimiento.service';
+import { TipoDelitoService } from 'src/app/modules/tipodelito/services/tipodelito.service';
+import { TipoDelito } from '@core/models/TipoDelito';
+import { PerfilService } from 'src/app/modules/perfil/services/perfil.service';
+import { Perfil } from '@core/models/Perfil';
+import { DelitoService } from 'src/app/modules/delito/services/delito.service';
+import { Delito } from '@core/models/Delito';
+import { DesarchivoService } from 'src/app/modules/desarchivo/services/desarchivo.service';
+import { Desarchivo } from '@core/models/Desarchivo';
 
 @Component({
   selector: 'app-toolbar-common',
@@ -35,8 +43,8 @@ import { SobreseimientoService } from 'src/app/modules/registroobjecion/sobresei
 export class ToolbarComponent {
 
 
-  @Input() serviceGeneric: PersonService | UsuarioService | CargoService | UnidadService | FuncionarioService | TipoobjecionService| UserprofileService | DesestimacionService | RechzoService | SobreseimientoService  |null  = null;
-  @Input() object: Person | User | Cargo | Unidad | Funcionario | Tipoobjecion | Userprofile | Rodesestimacion | Rorechazo | Rosobreseimiento | null = null;
+  @Input() serviceGeneric: PersonService | UsuarioService | CargoService | UnidadService |  FuncionarioService | PerfilService | TipoDelitoService | DelitoService | DesarchivoService | TipoobjecionService| UserprofileService | DesestimacionService | RechzoService | SobreseimientoService  |null  = null;
+  @Input() object: Person | User | Cargo | Unidad | Funcionario | Tipoobjecion | Userprofile | Rodesestimacion | Rorechazo | Rosobreseimiento | Perfil | TipoDelito | Delito | Desarchivo | null = null;
   tableComponent: any;
   formComponent: any;
   modalDeleteComponent: any;

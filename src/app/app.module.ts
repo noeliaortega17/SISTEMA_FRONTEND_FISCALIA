@@ -16,7 +16,7 @@ import { HeaderInterceptor } from '@core/interceptors/header.interceptor';
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
     ],
     imports: [
         BrowserModule,

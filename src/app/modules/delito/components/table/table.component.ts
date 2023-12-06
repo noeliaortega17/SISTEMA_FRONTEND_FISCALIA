@@ -1,35 +1,30 @@
 import { Component, EventEmitter, Output, inject, signal } from '@angular/core';
-import { User } from '@core/models/User';
-import { UsuarioService } from '../../services/usuario.service';
+import { Delito } from '@core/models/Delito';
 import { HelpersService } from '@core/services/helpers.service';
-import { ModalFormComponent } from '../modal-form/modal-form.component';
 import { Table } from 'primeng/table';
+import { DelitoService } from '../../services/delito.service';
 
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
   styles: [
-  ]
+  ] 
 })
 export class TableComponent {
+  @Output() rowSelected = new EventEmitter<Delito>();
 
-  @Output() rowSelected = new EventEmitter<User>();
-
-  // private enterpriseComponent = inject(EnterprisesComponent); 
-  private userService = inject(UsuarioService);
+  private delitoService = inject(DelitoService);
   private helpersService = inject(HelpersService);
 
-  users = signal<User[]>([]);
-  selectedUser = signal<User>(new User);
+  delitos = signal<Delito[]>([]);
+  selectedDelito = signal<Delito>(new Delito);
   firstPage = 0;
   rows = 5;
   optionsPage = signal([5, 10, 20]);
   loading = signal(false);
 
-  formComponent!: ModalFormComponent; // esto no esta en el ejemplo funcionario 
-
   ngOnInit() {
-    this.userService.eventTableComponent.emit(this);
+    this.delitoService.eventTableComponent.emit(this);
     this.getAll();
     this.helpersService.reloadGeneric.subscribe( () => {
       this.reload();
@@ -38,9 +33,9 @@ export class TableComponent {
 
   getAll(): void {
     this.loading.set(true);
-    this.userService.getAll().subscribe({
+    this.delitoService.getAll().subscribe({
       next: (res) => { 
-        this.users.set(res);
+        this.delitos.set(res);
         this.loading.set(false);
       },
       error: (err) => { 
@@ -64,13 +59,12 @@ export class TableComponent {
   } 
   
   onRowSelect(event: any) {
-    this.selectedUser.set(event.data);
-    this.rowSelected.emit(this.selectedUser());
+    this.selectedDelito.set(event.data);
+    this.rowSelected.emit(this.selectedDelito());
   }
 
   onRowUnselect() {
-    this.selectedUser.set(new User);
-    this.rowSelected.emit(this.selectedUser());
-  }   
-
+    this.selectedDelito.set(new Delito);
+    this.rowSelected.emit(this.selectedDelito());
+  }
 }

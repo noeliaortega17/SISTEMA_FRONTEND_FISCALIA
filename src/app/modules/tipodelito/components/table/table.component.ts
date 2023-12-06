@@ -1,35 +1,30 @@
 import { Component, EventEmitter, Output, inject, signal } from '@angular/core';
-import { User } from '@core/models/User';
-import { UsuarioService } from '../../services/usuario.service';
+import { TipoDelito } from '@core/models/TipoDelito';
+import { TipoDelitoService } from '../../services/tipodelito.service';
 import { HelpersService } from '@core/services/helpers.service';
-import { ModalFormComponent } from '../modal-form/modal-form.component';
 import { Table } from 'primeng/table';
 
 @Component({
   selector: 'app-table',
-  templateUrl: './table.component.html',
+  templateUrl: './table.component.html', 
   styles: [
   ]
 })
 export class TableComponent {
+  @Output() rowSelected = new EventEmitter<TipoDelito>();
 
-  @Output() rowSelected = new EventEmitter<User>();
-
-  // private enterpriseComponent = inject(EnterprisesComponent); 
-  private userService = inject(UsuarioService);
+  private tipoDelitoService = inject(TipoDelitoService);
   private helpersService = inject(HelpersService);
 
-  users = signal<User[]>([]);
-  selectedUser = signal<User>(new User);
+  tipoDelitos = signal<TipoDelito[]>([]);
+  selectedTipoDelito = signal<TipoDelito>(new TipoDelito);
   firstPage = 0;
   rows = 5;
   optionsPage = signal([5, 10, 20]);
   loading = signal(false);
 
-  formComponent!: ModalFormComponent; // esto no esta en el ejemplo funcionario 
-
   ngOnInit() {
-    this.userService.eventTableComponent.emit(this);
+    this.tipoDelitoService.eventTableComponent.emit(this);
     this.getAll();
     this.helpersService.reloadGeneric.subscribe( () => {
       this.reload();
@@ -38,9 +33,9 @@ export class TableComponent {
 
   getAll(): void {
     this.loading.set(true);
-    this.userService.getAll().subscribe({
+    this.tipoDelitoService.getAll().subscribe({
       next: (res) => { 
-        this.users.set(res);
+        this.tipoDelitos.set(res);
         this.loading.set(false);
       },
       error: (err) => { 
@@ -64,13 +59,13 @@ export class TableComponent {
   } 
   
   onRowSelect(event: any) {
-    this.selectedUser.set(event.data);
-    this.rowSelected.emit(this.selectedUser());
+    this.selectedTipoDelito.set(event.data);
+    this.rowSelected.emit(this.selectedTipoDelito());
   }
 
   onRowUnselect() {
-    this.selectedUser.set(new User);
-    this.rowSelected.emit(this.selectedUser());
-  }   
+    this.selectedTipoDelito.set(new TipoDelito);
+    this.rowSelected.emit(this.selectedTipoDelito());
+  }
 
 }

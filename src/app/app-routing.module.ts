@@ -55,6 +55,21 @@ const routes: Routes = [
     
   },
   {
+    path: 'perfiles',
+    loadComponent: () => import('./modules/perfil/perfil.component').then(c => c.PerfilComponent)
+    
+  },
+  {
+    path: 'tipoDelitos',
+    loadComponent: () => import('./modules/tipodelito/tipodelito.component').then(c => c.TipodelitoComponent)
+    
+  },
+  {
+    path: 'delitos',
+    loadComponent: () => import('./modules/delito/delito.component').then(c => c.DelitoComponent)
+    
+  },
+  {
     path: '**',
     pathMatch: 'full',
     loadComponent: () => import('./shared/components/nout-found/nout-found.component').then(c => c.NoutFoundComponent)

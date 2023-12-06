@@ -18,17 +18,14 @@ import { HelpersService } from '@core/services/helpers.service';
 export class UsuarioComponent {
   userService = inject(UsuarioService);
 
-  enterprises = signal<User[]>([]);
-  object = signal(new User);   
+  usuario = signal(new User);   
 
   ngOnInit(): void {
-    console.log("siiiiiiii");
-    
-    this.object.set(new User);
+    this.usuario.set(new User);
   }
 
-  setObject( object: User  ) {
-    this.object.set(object);
+  setObject( usuario: User  ) {
+    this.usuario.set(usuario);
   }
 
 }
