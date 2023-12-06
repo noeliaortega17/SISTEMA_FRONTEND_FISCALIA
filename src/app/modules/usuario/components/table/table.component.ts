@@ -20,13 +20,13 @@ export class TableComponent {
   private helpersService = inject(HelpersService);
 
   users = signal<User[]>([]);
-  selectedPerson = signal<User>(new User);
+  selectedUser = signal<User>(new User);
   firstPage = 0;
   rows = 5;
   optionsPage = signal([5, 10, 20]);
   loading = signal(false);
 
-  formComponent!: ModalFormComponent;
+  formComponent!: ModalFormComponent; // esto no esta en el ejemplo funcionario 
 
   ngOnInit() {
     this.userService.eventTableComponent.emit(this);
@@ -64,13 +64,13 @@ export class TableComponent {
   } 
   
   onRowSelect(event: any) {
-    this.selectedPerson.set(event.data);
-    this.rowSelected.emit(this.selectedPerson());
+    this.selectedUser.set(event.data);
+    this.rowSelected.emit(this.selectedUser());
   }
 
   onRowUnselect() {
-    this.selectedPerson.set(new User);
-    this.rowSelected.emit(this.selectedPerson());
+    this.selectedUser.set(new User);
+    this.rowSelected.emit(this.selectedUser());
   }   
 
 }

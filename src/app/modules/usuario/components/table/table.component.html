@@ -10,7 +10,7 @@
     styleClass="p-datatable-sm p-datatable-gridlines"
     [(first)]="firstPage"
     selectionMode="single"
-    [selection]="selectedPerson()"
+    [selection]="selectedUser()"
     dataKey="id"
 
     [loading]="loading()"
@@ -33,12 +33,16 @@
         <tr>
             <th pSortableColumn="usuario">Usuario <p-sortIcon field="usuario"></p-sortIcon></th>
             <th pSortableColumn="idFuncionario">Nombre Funcionario <p-sortIcon field="idFuncionario"></p-sortIcon></th>
+            <th pSortableColumn="idFuncionario">Cargo <p-sortIcon field="idFuncionario"></p-sortIcon></th>
+            <th pSortableColumn="idFuncionario">Unidad<p-sortIcon field="idFuncionario"></p-sortIcon></th>
         </tr>
     </ng-template>
     <ng-template pTemplate="body" let-user>
         <tr [pSelectableRow]="user">
             <td>{{ user.usuario }}</td>
-            <td>{{ user.idFuncionario }}</td>
+            <td>{{ user.idFuncionario.idPersona.nombre }}</td>
+            <td>{{ user.idFuncionario.idCargo.descripcion }}</td>
+            <td>{{ user.idFuncionario.idUnidad.descripcion }}</td>
         </tr>
     </ng-template>
 </p-table>
