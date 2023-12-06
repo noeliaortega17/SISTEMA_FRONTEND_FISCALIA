@@ -60,13 +60,6 @@ export class HeaderComponent {
             routerLinkActive: 'active'
         },
         {
-            label: 'Rosa',
-            icon: 'pi pi-user',
-            items: [],
-            routerLink: ['/funcionarios'],
-            routerLinkActive: 'active'
-        },
-        {
             label: 'Unidad',
             icon: 'pi pi-apple',
             items: [
@@ -80,7 +73,28 @@ export class HeaderComponent {
             ],
             routerLink: ['/unidades'],
             routerLinkActive: 'active'
-        }
+        },
+        {
+            label: 'Perfil',
+            icon: 'pi pi-book',
+            items: [],
+            routerLink: ['/perfiles'],
+            routerLinkActive: 'active'
+        },
+        {
+            label: 'TipoDelito',
+            icon: 'pi pi-book',
+            items: [],
+            routerLink: ['/tipoDelitos'],
+            routerLinkActive: 'active'
+        },
+        {
+            label: 'Delito',
+            icon: 'pi pi-book',
+            items: [],
+            routerLink: ['/delitos'],
+            routerLinkActive: 'active'
+        },
     ] ;
 
     ngOnInit() {
