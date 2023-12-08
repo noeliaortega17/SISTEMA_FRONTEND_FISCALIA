@@ -1,6 +1,4 @@
-import { Funcionario } from "./Funcionario";
-
-export class User  {
+export class Cargo  {
     activo:              boolean | null = null;
     fecha_creacion:      string | null = null;
     fecha_modificacion:  string | null = null;
@@ -9,7 +7,6 @@ export class User  {
     usuario_modificaion: number | null = null;
     usuario_eliminacion: number | null = null;
     id:                  number | null = null;
-    usuario:              string | null = null;
-    contraseña:         string | null = null;
-    idFuncionario:         Funcionario | null = null;
+    descripcion:         string | null = null;
+    item:                number | null = null;
 }

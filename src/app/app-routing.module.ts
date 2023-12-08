@@ -3,7 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { PersonaComponent } from '@person/persona.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/people', pathMatch: 'full' },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  {
+    path: 'login',
+    loadComponent: () => import('./modules/login/login.component').then(c => c.LoginComponent)
+    
+  },
   {
     path: 'people',
     loadComponent: () => import('./modules/persona/persona.component').then(c => c.PersonaComponent)

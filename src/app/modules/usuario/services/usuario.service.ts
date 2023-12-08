@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, Output, EventEmitter, inject  } from '@angular/core';
+import { LoginRequest, LoginResponse } from '@core/models/Login';
 import { User } from '@core/models/User';
 import { environment } from 'src/environments/environment.development';
 
@@ -35,6 +36,10 @@ export class UsuarioService {
 
   public delete(id: number) {
     return this.http.delete(this.serverUrl + 'usuario/' + id)
+  }
+  
+  public login(body: LoginRequest) {
+    return this.http.post<LoginResponse>(this.serverUrl + 'usuario/login', body)
   }
 
 }

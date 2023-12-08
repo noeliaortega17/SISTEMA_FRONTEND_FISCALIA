@@ -26,6 +26,7 @@ import { CardModule } from 'primeng/card';
 import { PasswordModule } from 'primeng/password';
 import { ListboxModule } from 'primeng/listbox';
 import { TieredMenuModule } from 'primeng/tieredmenu';
+import { MenuModule } from 'primeng/menu';
 
 
 @NgModule({
@@ -56,7 +57,8 @@ import { TieredMenuModule } from 'primeng/tieredmenu';
     CardModule,
     PasswordModule,
     ListboxModule,
-    TieredMenuModule
+    TieredMenuModule,
+    MenuModule
     
   ],
   providers: [
