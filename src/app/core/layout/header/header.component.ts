@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { PrimeComponentsModule } from 'src/app/shared/prime-components/prime-components.module';
+import { LoginService } from '@core/services/login.service';
+import { LocalStorageService } from '@core/services/local-storage.service';
 
 @Component({
   selector: 'app-header',
@@ -12,8 +14,11 @@ import { PrimeComponentsModule } from 'src/app/shared/prime-components/prime-com
 })
 export class HeaderComponent {
     constructor(private router: Router) {}
+
+    loginService = inject(LoginService);
+    localStorageService = inject(LocalStorageService);
   
-    items: { label: string, icon: string, items: any, routerLink: string[], routerLinkActive: string }[] = [] ;
+    items: { label: string, icon: string, items: any, routerLink: string[], routerLinkActive: string }[] = [];
     itemsBase: { label: string, icon: string, items: any, routerLink: string[], routerLinkActive: string }[] = [
         {
             label: 'Personas',
@@ -139,9 +144,18 @@ export class HeaderComponent {
         },
     ] ;
 
+    itemsLogin: { label: string, icon: string, routerLink: string[], routerLinkActive: string }[] = [
+        { label: 'Logout', icon: 'pi pi-external-link', routerLink: ['/'], routerLinkActive: '' }
+    ];
+
+    redirectLogin() {
+        this.router.navigate(['/'])
+    }
+
     ngOnInit() {
         this.items = this.itemsBase;
     }
+    
 
     filterHeader( event: any ) {
         this.items = [];

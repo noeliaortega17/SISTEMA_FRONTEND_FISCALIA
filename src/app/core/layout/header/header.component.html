@@ -10,7 +10,13 @@
                     <i class="pi pi-search"></i>
                     <input pInputText type="text" placeholder="Buscar..." (input)="filterHeader($event)"  class="w-full sm:w-auto mr-2"/>
                 </span>
-                <button pButton pRipple icon="pi pi-user" class="p-button-rounded ml-2"  ></button>
+                <ng-container *ngIf="localStorageService.get('username'); else logout" >
+                    <button pButton pRipple icon="pi pi-user mr-2" (click)="menuLogin.toggle($event)" class="p-button-rounded ml-2"  > {{ localStorageService.get('username') }} </button>
+                    <p-menu #menuLogin [model]="itemsLogin" [popup]="true"></p-menu>
+                </ng-container>
+                <ng-template #logout>
+                    <button pButton pRipple icon="pi pi-external-link" (click)="redirectLogin()" class="p-button-rounded ml-2"  ></button>
+                </ng-template>
             </div>
         </ng-template>
     </p-menubar>

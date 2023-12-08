@@ -8,7 +8,6 @@ import { PrimeComponentsModule } from './shared/prime-components/prime-component
 import { SharedModule } from 'primeng/api';
 import { HeaderComponent } from './core/layout/header/header.component';
 import { FooterComponent } from './core/layout/footer/footer.component';
-import { LoginComponent } from '@shared/components/login/login.component';
 import { HeaderInterceptor } from '@core/interceptors/header.interceptor';
 
 
@@ -26,7 +25,6 @@ import { HeaderInterceptor } from '@core/interceptors/header.interceptor';
         SharedModule,
         HeaderComponent,
         FooterComponent,
-        LoginComponent,
         AppRoutingModule,
     ],
     

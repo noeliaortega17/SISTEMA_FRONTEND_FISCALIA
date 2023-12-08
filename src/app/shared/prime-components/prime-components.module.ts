@@ -29,6 +29,7 @@ import { TieredMenuModule } from 'primeng/tieredmenu';
 import { TriStateCheckboxModule } from 'primeng/tristatecheckbox';
 
 import { CalendarModule } from 'primeng/calendar';
+import { MenuModule } from 'primeng/menu';
 
 
 @NgModule({
@@ -61,7 +62,8 @@ import { CalendarModule } from 'primeng/calendar';
     ListboxModule,
     TieredMenuModule,
     TriStateCheckboxModule,
-    CalendarModule
+    CalendarModule,
+    MenuModule
     
   ],
   providers: [

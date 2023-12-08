@@ -1,10 +1,12 @@
+import { Perfil } from "./Perfil";
+import { User } from "./User";
+
 export class LoginRequest  {
-    email: string | null = null;
+    user: string | null = null;
     password: string | null = null;
 }
 
 export class LoginResponse  {
-    message: string | null = null;
-    token: string | null = null;
-    username: string | null = null;
+    usuario: User | null = null;
+    perfil : Perfil | null = null;
 }
