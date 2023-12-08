@@ -1,6 +1,6 @@
 import { Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { UserprofileService } from './services/usuarioperfil.service';
+import { UsuarioPerfilService } from './services/usuarioperfil.service';
 import { Userprofile } from '@core/models/Userprofile';
 import { HelpersService } from '@core/services/helpers.service';
 import { UsuarioperfilModule } from './usuarioperfil.module';
@@ -17,7 +17,7 @@ import { ModaldeleteComponent } from '@shared/components/modal-delete/modal-dele
   providers: [ HelpersService]
 })
 export class UsuarioperfilComponent {
-  userprofileService = inject(UserprofileService);
+  userprofileService = inject(UsuarioPerfilService);
 
   usuarioperfil = signal(new Userprofile);   
 

@@ -1,8 +1,8 @@
 import { Component, EventEmitter, Output, inject, signal } from '@angular/core';
+import { RegistroObjecion } from '@core/models/RegistroObjecion';
 import { HelpersService } from '@core/services/helpers.service';
+import { RegistroObjecionService } from '../../services/registroobjecion.service';
 import { Table } from 'primeng/table';
-import { SobreseimientoService } from '../../services/sobreseimiento.service';
-import { Rosobreseimiento } from '@core/models/Rosobreseimiento';
 
 @Component({
   selector: 'app-table',
@@ -11,20 +11,20 @@ import { Rosobreseimiento } from '@core/models/Rosobreseimiento';
   ]
 })
 export class TableComponent {
-  @Output() rowSelected = new EventEmitter<Rosobreseimiento>();
+  @Output() rowSelected = new EventEmitter<RegistroObjecion>();
 
-  private sobreseimientoService = inject(SobreseimientoService);
+  private registroobjecionService = inject(RegistroObjecionService);
   private helpersService = inject(HelpersService);
 
-  sobreseimientos = signal<Rosobreseimiento[]>([]);
-  selectedSobreseimiento = signal<Rosobreseimiento>(new Rosobreseimiento);
+  registroobjeciones = signal<RegistroObjecion[]>([]);
+  selectedRegistroobjecion = signal<RegistroObjecion>(new RegistroObjecion);
   firstPage = 0;
   rows = 5;
   optionsPage = signal([5, 10, 20]);
   loading = signal(false);
 
   ngOnInit() {
-    this.sobreseimientoService.eventTableComponent.emit(this);
+    this.registroobjecionService.eventTableComponent.emit(this);
     this.getAll();
     this.helpersService.reloadGeneric.subscribe( () => {
       this.reload();
@@ -33,9 +33,9 @@ export class TableComponent {
 
   getAll(): void {
     this.loading.set(true);
-    this.sobreseimientoService.getAll().subscribe({
+    this.registroobjecionService.getAll().subscribe({
       next: (res) => { 
-        this.sobreseimientos.set(res);
+        this.registroobjeciones.set(res);
         this.loading.set(false);
       },
       error: (err) => { 
@@ -59,12 +59,12 @@ export class TableComponent {
   } 
   
   onRowSelect(event: any) {
-    this.selectedSobreseimiento.set(event.data);
-    this.rowSelected.emit(this.selectedSobreseimiento());
+    this.selectedRegistroobjecion.set(event.data);
+    this.rowSelected.emit(this.selectedRegistroobjecion());
   }
 
   onRowUnselect() {
-    this.selectedSobreseimiento.set(new Rosobreseimiento);
-    this.rowSelected.emit(this.selectedSobreseimiento());
+    this.selectedRegistroobjecion.set(new RegistroObjecion);
+    this.rowSelected.emit(this.selectedRegistroobjecion());
   }
 }

@@ -1,13 +1,13 @@
 import { Component, inject, signal } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HelpersService } from '@core/services/helpers.service';
-import { UsuarioPerfilService } from '../../services/usuarioperfil.service';
-import { Userprofile } from '@core/models/Userprofile';
+import { RegistroObjecionService } from '../../services/registroobjecion.service';
+import { RegistroObjecion } from '@core/models/RegistroObjecion';
 import { TableComponent } from '../table/table.component';
-import { UsuarioService } from 'src/app/modules/usuario/services/usuario.service';
-import { User } from '@core/models/User';
-import { PerfilService } from 'src/app/modules/perfil/services/perfil.service';
-import { Perfil } from '@core/models/Perfil';
+import { Funcionario } from '@core/models/Funcionario';
+import { Tipoobjecion } from '@core/models/Tipoobjecion';
+import { FuncionarioService } from 'src/app/modules/funcionario/services/funcionario.service';
+import { TipoobjecionService } from 'src/app/modules/tipoobjecion/services/tipoobjecion.service';
 
 @Component({
   selector: 'app-modal-form',
@@ -18,40 +18,42 @@ import { Perfil } from '@core/models/Perfil';
 export class ModalFormComponent {
   private formBuilder = inject(FormBuilder);
   private helpersService = inject(HelpersService);
-  private userprofileService = inject(UsuarioPerfilService);
-  private userService = inject(UsuarioService);
-  private profileService = inject(PerfilService);
+  private registrobjecionService = inject(RegistroObjecionService);
+  private funcionarioService = inject(FuncionarioService);
+  private tipoobjecionService = inject(TipoobjecionService);
   
-  userprofile!: Userprofile; 
+  registroobjecion!: RegistroObjecion; 
   openModal: boolean = false;
   tittleForm: string = "";
   tableComponent!: TableComponent;
   isLoading = false;
 
-  users = signal<User[]>([]);
-  profiles = signal<Perfil[]>([]);
+  funcionarios = signal<Funcionario[]>([]);
+  tipoobjeciones = signal<Tipoobjecion[]>([]);
 
   ngOnInit() {
-    this.userprofileService.eventFormComponent.emit(this);
-    this.userprofileService.eventTableComponent.subscribe((tableComponent) => {
+    this.registrobjecionService.eventFormComponent.emit(this);
+    this.registrobjecionService.eventTableComponent.subscribe((tableComponent) => {
       this.tableComponent = tableComponent;
     });
 
-    this.getAllUsers();
-    this.getAllProfiles();
+    this.getAllFuncionarios();
+    this.getAllTipoobjeciones();
   };
 
 
-  public formUserprofile: FormGroup = this.formBuilder.group({
+  public formRegistroObjecion: FormGroup = this.formBuilder.group({
     id: [],
-    idUsuario: [ , Validators.required,],
-    idPerfil: [ , Validators.required,],
+    idFuncionario: [ , Validators.required,],
+    idTipoObjecion: [ , Validators.required,],
+    numeroResolucion: [ , Validators.required,],
+    cud: [ , Validators.required,]
   });
 
-  getAllUsers() {
-    this.userService.getAll().subscribe({
+  getAllFuncionarios() {
+    this.funcionarioService.getAll().subscribe({
       next: (res) => { 
-        this.users.set(res);
+        this.funcionarios.set(res);
       },
       error: (err) => { 
         console.log(err);
@@ -60,10 +62,10 @@ export class ModalFormComponent {
     })
   }
   
-  getAllProfiles() {
-    this.profileService.getAll().subscribe({
+  getAllTipoobjeciones() {
+    this.tipoobjecionService.getAll().subscribe({
       next: (res) => { 
-        this.profiles.set(res);
+        this.tipoobjeciones.set(res);
       },
       error: (err) => { 
         console.log(err);
@@ -79,16 +81,16 @@ export class ModalFormComponent {
 
   openCreate(){
     this.reset();
-    this.tittleForm = "Nuevo Usuario Perfil";
+    this.tittleForm = "Nuevo Registro Objecion";
     this.openModal = true;
   };
 
   openEdit(id: number ){
     this.reset();
-    this.tittleForm="Editar Usuario Perfil";
-    this.userprofileService.getById(id).subscribe({
+    this.tittleForm="Editar Registro Objecion";
+    this.registrobjecionService.getById(id).subscribe({
       next: (res) => {
-        this.userprofile = res;
+        this.registroobjecion = res;
         this.openModal=true;
       },
       error: (err) => { 
@@ -100,9 +102,9 @@ export class ModalFormComponent {
 
   saveUnidad() {
     this.isLoading = true;
-    if (this.formUserprofile.valid) {
-      if(this.userprofile.id){
-        this.submitUpdate(this.userprofile.id);
+    if (this.formRegistroObjecion.valid) {
+      if(this.registroobjecion.id){
+        this.submitUpdate(this.registroobjecion.id);
       }else{
         this.submitCreate();
       }
@@ -110,16 +112,16 @@ export class ModalFormComponent {
   };
   
   reset(): void {
-    this.formUserprofile.reset();
-    this.userprofile = new Userprofile;
+    this.formRegistroObjecion.reset();
+    this.registroobjecion = new RegistroObjecion;
     
   };
 
   submitCreate() {
-    const data: Userprofile = {
-      ...this.formUserprofile.value,
+    const data: RegistroObjecion = {
+      ...this.formRegistroObjecion.value,
     };
-    this.userprofileService.create(data).subscribe({
+    this.registrobjecionService.create(data).subscribe({
       next: (res) => { 
         this.tableComponent.reload();
         this.helpersService.messageNotification("success", "Correcto", `La unidad ${res.id} ha sido creada.`, 3000);
@@ -135,13 +137,13 @@ export class ModalFormComponent {
   };
   
   submitUpdate(idParameter : number) {
-    const data: Userprofile = {
-      ...this.formUserprofile.value,
+    const data: RegistroObjecion = {
+      ...this.formRegistroObjecion.value,
     };
-    this.userprofileService.update(idParameter, data).subscribe({
+    this.registrobjecionService.update(idParameter, data).subscribe({
         next: (res) => { 
           this.tableComponent.reload();
-          this.tableComponent.selectedUsuarioperfil.set( res );
+          this.tableComponent.selectedRegistroobjecion.set( res );
           this.helpersService.messageNotification("success", "Correcto", `La unidad  ${res.id} ha sido actualizada.`, 3000);
           this.hideModal();
           this.reset();

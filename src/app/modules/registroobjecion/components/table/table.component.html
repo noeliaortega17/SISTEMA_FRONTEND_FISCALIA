@@ -1,6 +1,6 @@
 <p-table
     #dt1
-    [value]="rechzos()"
+    [value]="registroobjeciones()"
     [paginator]="true"
     [rows]="rows"
     [showCurrentPageReport]="true"
@@ -10,7 +10,7 @@
     styleClass="p-datatable-sm p-datatable-gridlines"
     [(first)]="firstPage"
     selectionMode="single"
-    [selection]="selectedRechzo()"
+    [selection]="selectedRegistroobjecion()"
     dataKey="id"
 
     [loading]="loading()"
@@ -21,7 +21,7 @@
     <ng-template pTemplate="caption">
         <div class="flex">
             
-            <h3 >Rechazos</h3>
+            <h3 >Listado de perfiles</h3>
             <span class="p-input-icon-left ml-auto">
                 <i class="pi pi-search"></i>
                 <input pInputText type="text" (input)="onGlobalFilter(dt1, $event)" placeholder="Buscar en la tabla" />
@@ -31,18 +31,19 @@
     
     <ng-template pTemplate="header">
         <tr>
-            <th pSortableColumn="descripcion">Descripción <p-sortIcon field="descripcion"></p-sortIcon></th>
-            <th pSortableColumn="descripcion">Instructivo <p-sortIcon field="descripcion"></p-sortIcon></th>
-            <th pSortableColumn="descripcion"> Numero de resolucion <p-sortIcon field="descripcion"></p-sortIcon></th>
-            <th pSortableColumn="descripcion">cud <p-sortIcon field="descripcion"></p-sortIcon></th>
+            <th pSortableColumn="idTipoObjecion.descripcion">Descripción <p-sortIcon field="idTipoObjecion.descripcionn"></p-sortIcon></th>
+            <th pSortableColumn="idFuncionario">Funcionario <p-sortIcon field="idFuncionario"></p-sortIcon></th>
+            <th pSortableColumn="numeroResolucion">Número de Resolucion<p-sortIcon field="numeroResolucion"></p-sortIcon></th>
+            <th pSortableColumn="cud">CUD <p-sortIcon field="cud"></p-sortIcon></th>
         </tr>
     </ng-template>
-    <ng-template pTemplate="body" let-rechzo>
-        <tr [pSelectableRow]="rechzo">
-            <td>{{ rechzo.idTipoobjecion.descripcion }}</td>
-            <td>{{ rechzo.idFuncionario.instructivo }}</td>
-            <td>{{ rechzo.num_resolucion }}</td>
-            <td>{{ rechzo.cud }}</td>
+    <ng-template pTemplate="body" let-registroobjecion>
+        <tr [pSelectableRow]="registroobjecion">
+            <td>{{ registroobjecion.idTipoObjecion.descripcion }}</td>
+            <td>{{ registroobjecion.idFuncionario }}</td>
+            <td>{{ registroobjecion.numeroResolucion }}</td>
+            <td>{{ registroobjecion.cud }}</td>
         </tr>
     </ng-template>
 </p-table>
+

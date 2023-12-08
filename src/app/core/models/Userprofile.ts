@@ -1,3 +1,6 @@
+import { Perfil } from "./Perfil";
+import { User } from "./User";
+
 export class Userprofile  {
     activo:              boolean | null = null;
     fecha_creacion:      string | null = null;
@@ -7,6 +10,6 @@ export class Userprofile  {
     usuario_modificaion: number | null = null;
     usuario_eliminacion: number | null = null;
     id:                  number | null = null;
-    idUsuario:           number | null = null;
-    idPerfil:            number | null = null;
+    idUsuario:           User | null = null;
+    idPerfil:            Perfil | null = null;
 }
