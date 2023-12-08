@@ -70,6 +70,11 @@ const routes: Routes = [
     
   },
   {
+    path: 'desarchivos',
+    loadComponent: () => import('./modules/desarchivo/desarchivo.component').then(c => c.DesarchivoComponent)
+    
+  },
+  {
     path: '**',
     pathMatch: 'full',
     loadComponent: () => import('./shared/components/nout-found/nout-found.component').then(c => c.NoutFoundComponent)

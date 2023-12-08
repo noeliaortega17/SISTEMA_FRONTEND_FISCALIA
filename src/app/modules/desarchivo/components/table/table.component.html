@@ -31,19 +31,24 @@
     
     <ng-template pTemplate="header">
         <tr>
-            <th pSortableColumn="descripcion">descripcion <p-sortIcon field="descripcion"></p-sortIcon></th>
             <th pSortableColumn="descripcion">cud <p-sortIcon field="descripcion"></p-sortIcon></th>
             <th pSortableColumn="descripcion">motivo <p-sortIcon field="descripcion"></p-sortIcon></th>
-            <th pSortableColumn="descripcion">fecha_asignacion <p-sortIcon field="descripcion"></p-sortIcon></th>
-            <th pSortableColumn="descripcion">decha_recepcion <p-sortIcon field="descripcion"></p-sortIcon></th>
-            <th pSortableColumn="descripcion">fecha_desarchivo <p-sortIcon field="descripcion"></p-sortIcon></th>
-            <th pSortableColumn="descripcion">Nombre <p-sortIcon field="descripcion"></p-sortIcon></th>
-            <th pSortableColumn="descripcion">descripcion<p-sortIcon field="descripcion"></p-sortIcon></th>
+            <th pSortableColumn="descripcion">Funcionario <p-sortIcon field="descripcion"></p-sortIcon></th>
+            <th pSortableColumn="descripcion">delito<p-sortIcon field="descripcion"></p-sortIcon></th>
+            <th pSortableColumn="descripcion">fechaAsignacion <p-sortIcon field="descripcion"></p-sortIcon></th>
+            <th pSortableColumn="descripcion">fechaRecepcion <p-sortIcon field="descripcion"></p-sortIcon></th>
+            <th pSortableColumn="descripcion">fechaDesarchivo <p-sortIcon field="descripcion"></p-sortIcon></th>
         </tr>
     </ng-template>
-    <ng-template pTemplate="body" let-unidad>
-        <tr [pSelectableRow]="unidad">
-            <td>{{ unidad.descripcion }}</td>
+    <ng-template pTemplate="body" let-desarchivo>
+        <tr [pSelectableRow]="desarchivo">
+            <td>{{ desarchivo.cud }}</td>
+            <td>{{ desarchivo.motivo }}</td>
+            <td>{{ desarchivo.fechaAsignacion }}</td>
+            <td>{{ desarchivo.fechaRecepcion }}</td>
+            <td>{{ desarchivo.fechaDesarchivo }}</td>
+            <td>{{ desarchivo.idFuncionario.descripcion }}</td>
+            <td>{{ desarchivo.idDelito.descripcion }}</td>
         </tr>
     </ng-template>
 </p-table>

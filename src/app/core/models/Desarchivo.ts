@@ -13,9 +13,9 @@ export class Desarchivo{
     descripcion:         string | null = null;
     cud:                 number | null = null;
     motivo:              string | null = null;
-    fecha_asignacion:    string | null = null;
-    fecha_recepcion:     string | null = null;
-    fecha_desarchivo:    string | null = null;
+    fechaAsignacion:    string | null = null;
+    fechaRecepcion:     string | null = null;
+    fechaDesarchivo:    string | null = null;
     idDelito:            Delito | null = null;
     idFuncionario:       Funcionario | null = null;
 }

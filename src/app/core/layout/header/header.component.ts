@@ -130,6 +130,13 @@ export class HeaderComponent {
             routerLink: ['/delitos'],
             routerLinkActive: 'active'
         },
+        {
+            label: 'Desarchivo',
+            icon: 'pi pi-book',
+            items: [],
+            routerLink: ['/desarchivos'],
+            routerLinkActive: 'active'
+        },
     ] ;
 
     ngOnInit() {

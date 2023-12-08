@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, Output, EventEmitter, inject  } from '@angular/core';
-import { Delito } from '@core/models/Delito';
 import { Desarchivo } from '@core/models/Desarchivo';
 import { environment } from 'src/environments/environment.development';
 
@@ -30,7 +29,7 @@ export class DesarchivoService {
     return this.http.post<Desarchivo>(this.serverUrl + 'desarchivo', desarchivo)
   }
   
-  public update(id: number, desarchivo: Delito) {
+  public update(id: number, desarchivo: Desarchivo) {
     return this.http.put<Desarchivo>(this.serverUrl + 'desarchivo/' + id, desarchivo)
   }
 
