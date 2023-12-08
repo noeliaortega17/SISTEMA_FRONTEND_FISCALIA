@@ -35,6 +35,11 @@ const routes: Routes = [
     
   },
   {
+    path: 'instructivos',
+    loadComponent: () => import('./modules/instructivo/instructivo.component').then(c => c.InstructivoComponent)
+    
+  },
+  {
     path: 'tipoobjeciones',
     loadComponent: () => import('./modules/tipoobjecion/tipoobjecion.component').then(c => c.TipoobjecionComponent)
     

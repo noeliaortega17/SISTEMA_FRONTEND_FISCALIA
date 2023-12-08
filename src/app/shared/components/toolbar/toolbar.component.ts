@@ -28,6 +28,8 @@ import { DesarchivoService } from 'src/app/modules/desarchivo/services/desarchiv
 import { Desarchivo } from '@core/models/Desarchivo';
 import { RegistroObjecionService } from 'src/app/modules/registroobjecion/services/registroobjecion.service';
 import { RegistroObjecion } from '@core/models/RegistroObjecion';
+import { InstructivoService } from 'src/app/modules/instructivo/services/instructivo.service';
+import { Instructivo } from '@core/models/Instructivo';
 
 @Component({
   selector: 'app-toolbar-common',
@@ -39,8 +41,10 @@ import { RegistroObjecion } from '@core/models/RegistroObjecion';
 export class ToolbarComponent {
 
 
-  @Input() serviceGeneric: PersonService | UsuarioService | CargoService | UnidadService |  FuncionarioService | PerfilService | TipoDelitoService | DelitoService | DesarchivoService | TipoobjecionService| UsuarioPerfilService  | RegistroObjecionService | null  = null;
-  @Input() object: Person | User | Cargo | Unidad | Funcionario | Tipoobjecion | Userprofile | Perfil | TipoDelito | Delito | Desarchivo | RegistroObjecion| null = null;
+
+  @Input() serviceGeneric: PersonService | UsuarioService | CargoService | UnidadService |  FuncionarioService | PerfilService | TipoDelitoService | DelitoService | DesarchivoService | TipoobjecionService| InstructivoService | UsuarioPerfilService  | RegistroObjecionService | null  = null;
+  @Input() object: Person | User | Cargo | Unidad | Funcionario | Tipoobjecion | Userprofile | Perfil | TipoDelito | Delito | Desarchivo | Instructivo | RegistroObjecion| null = null;
+
   tableComponent: any;
   formComponent: any;
   modalDeleteComponent: any;

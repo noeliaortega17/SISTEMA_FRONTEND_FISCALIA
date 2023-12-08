@@ -1,0 +1,50 @@
+<p-table
+    #dt1
+    [value]="instructivos()"
+    [paginator]="true"
+    [rows]="rows"
+    [showCurrentPageReport]="true"
+    
+    currentPageReportTemplate="Mostrando del {first} al {last} de {totalRecords} elementos"
+    [rowsPerPageOptions]="optionsPage()"
+    styleClass="p-datatable-sm p-datatable-gridlines"
+    [(first)]="firstPage"
+    selectionMode="single"
+    [selection]="selectedInstructivo()"
+    dataKey="id"
+
+    [loading]="loading()"
+    [globalFilterFields]="['nombre', 'apelidoPat']"
+    (onRowSelect)="onRowSelect($event)"
+    (onRowUnselect)="onRowUnselect()"
+>
+    <ng-template pTemplate="caption">
+        <div class="flex">
+            
+            <h3 >Listado de Instructivos</h3>
+            <span class="p-input-icon-left ml-auto">
+                <i class="pi pi-search"></i>
+                <input pInputText type="text" (input)="onGlobalFilter(dt1, $event)" placeholder="Buscar en la tabla" />
+            </span>
+        </div>
+    </ng-template>
+    
+    <ng-template pTemplate="header">
+        <tr>
+            <th pSortableColumn="nombre">PDF <p-sortIcon field="nombre"></p-sortIcon></th>
+            <th pSortableColumn="nombre">Cite <p-sortIcon field="nombre"></p-sortIcon></th>
+            <th pSortableColumn="apellidoPat">Descripción <p-sortIcon field="apellidoPat"></p-sortIcon></th>
+            <th pSortableColumn="apellidoMat">Fiscalia General <p-sortIcon field="apellidoMat"></p-sortIcon></th>
+            <th pSortableColumn="ci">Fecha<p-sortIcon field="ci"></p-sortIcon></th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-instructivo>
+        <tr [pSelectableRow]="instructivo">
+            <td class="text-center"> <i class="pi pi-check" (click)="donwloadPdf(instructivo.pdf)" ></i> </td>
+            <td>{{ instructivo.cite }}</td>
+            <td>{{ instructivo.descripcion }}</td>
+            <td>{{ (instructivo.fiscaliaGeneral)? "SI" : "NO" }}</td>
+            <td>{{ instructivo.fechaInstructivo }}</td>
+        </tr>
+    </ng-template>
+</p-table>

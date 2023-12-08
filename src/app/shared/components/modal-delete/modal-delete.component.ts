@@ -16,6 +16,7 @@ import { PerfilService } from 'src/app/modules/perfil/services/perfil.service';
 import { TipoDelitoService } from 'src/app/modules/tipodelito/services/tipodelito.service';
 import { DelitoService } from 'src/app/modules/delito/services/delito.service';
 import { DesarchivoService } from 'src/app/modules/desarchivo/services/desarchivo.service';
+import { InstructivoService } from 'src/app/modules/instructivo/services/instructivo.service';
 import { RegistroObjecionService } from 'src/app/modules/registroobjecion/services/registroobjecion.service';
 
 @Component({
@@ -26,7 +27,7 @@ import { RegistroObjecionService } from 'src/app/modules/registroobjecion/servic
   styles: []
 })
 export class ModaldeleteComponent implements OnInit {
-  @Input() serviceGeneric!: PersonService | CargoService | UsuarioService | FuncionarioService | UnidadService | PerfilService | TipoDelitoService | DelitoService | DesarchivoService | TipoobjecionService | RegistroObjecionService| UsuarioPerfilService |null;
+  @Input() serviceGeneric!: PersonService | CargoService | UsuarioService | FuncionarioService | UnidadService | PerfilService | TipoDelitoService | DelitoService | DesarchivoService | TipoobjecionService | RegistroObjecionService| UsuarioPerfilService | InstructivoService |null;
   @Input() object: number | any;
   // tableComponent: any;
 

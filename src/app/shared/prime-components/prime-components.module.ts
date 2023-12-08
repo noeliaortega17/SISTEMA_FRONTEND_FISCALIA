@@ -26,7 +26,9 @@ import { CardModule } from 'primeng/card';
 import { PasswordModule } from 'primeng/password';
 import { ListboxModule } from 'primeng/listbox';
 import { TieredMenuModule } from 'primeng/tieredmenu';
+import { CalendarModule } from 'primeng/calendar';
 import { MenuModule } from 'primeng/menu';
+import { TriStateCheckboxModule } from 'primeng/tristatecheckbox';
 
 
 @NgModule({
@@ -38,6 +40,7 @@ import { MenuModule } from 'primeng/menu';
     ButtonModule,
     SkeletonModule,
     CheckboxModule,
+    TriStateCheckboxModule,
     SplitButtonModule,
     MenubarModule,
     FieldsetModule,
@@ -58,6 +61,7 @@ import { MenuModule } from 'primeng/menu';
     PasswordModule,
     ListboxModule,
     TieredMenuModule,
+    CalendarModule,
     MenuModule
     
   ],
