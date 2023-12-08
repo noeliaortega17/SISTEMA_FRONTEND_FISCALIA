@@ -11,14 +11,12 @@ import { UsuarioService } from 'src/app/modules/usuario/services/usuario.service
 import { FuncionarioService } from 'src/app/modules/funcionario/services/funcionario.service';
 import { UnidadService } from 'src/app/modules/unidad/services/unidad.service';
 import { TipoobjecionService } from 'src/app/modules/tipoobjecion/services/tipoobjecion.service';
-import { UserprofileService } from 'src/app/modules/usuarioperfil/services/usuarioperfil.service';
-import { DesestimacionService } from 'src/app/modules/registroobjecion/desestimacion/services/desestimacion.service';
-import { RechzoService } from 'src/app/modules/registroobjecion/rechzo/services/rechzo.service';
-import { SobreseimientoService } from 'src/app/modules/registroobjecion/sobreseimiento/services/sobreseimiento.service';
+import { UsuarioPerfilService } from 'src/app/modules/usuarioperfil/services/usuarioperfil.service';
 import { PerfilService } from 'src/app/modules/perfil/services/perfil.service';
 import { TipoDelitoService } from 'src/app/modules/tipodelito/services/tipodelito.service';
 import { DelitoService } from 'src/app/modules/delito/services/delito.service';
 import { DesarchivoService } from 'src/app/modules/desarchivo/services/desarchivo.service';
+import { RegistroObjecionService } from 'src/app/modules/registroobjecion/services/registroobjecion.service';
 
 @Component({
   selector: 'app-modal-delete',
@@ -28,7 +26,7 @@ import { DesarchivoService } from 'src/app/modules/desarchivo/services/desarchiv
   styles: []
 })
 export class ModaldeleteComponent implements OnInit {
-  @Input() serviceGeneric!: PersonService | CargoService | UsuarioService | FuncionarioService | UnidadService | PerfilService | TipoDelitoService | DelitoService | DesarchivoService | TipoobjecionService | UserprofileService | DesestimacionService | RechzoService | SobreseimientoService |null;
+  @Input() serviceGeneric!: PersonService | CargoService | UsuarioService | FuncionarioService | UnidadService | PerfilService | TipoDelitoService | DelitoService | DesarchivoService | TipoobjecionService | RegistroObjecionService| UsuarioPerfilService |null;
   @Input() object: number | any;
   // tableComponent: any;
 

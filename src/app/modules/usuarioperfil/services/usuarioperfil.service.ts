@@ -6,7 +6,7 @@ import { environment } from 'src/environments/environment.development';
 @Injectable({
   providedIn: 'root'
 })
-export class UserprofileService {
+export class UsuarioPerfilService {
 
   @Output() eventFormComponent: EventEmitter<any> = new EventEmitter();
   @Output() eventTableComponent: EventEmitter<any> = new EventEmitter();

@@ -45,21 +45,6 @@ const routes: Routes = [
     
   },
   {
-    path: 'desestimaciones',
-    loadComponent: () => import('./modules/registroobjecion/desestimacion/desestimacion.component').then(c => c.DesestimacionComponent)
-    
-  },
-  {
-    path: 'rechzos',
-    loadComponent: () => import('./modules/registroobjecion/rechzo/rechzo.component').then(c => c.RechzoComponent)
-    
-  },
-  {
-    path: 'sobreseimientos',
-    loadComponent: () => import('./modules/registroobjecion/sobreseimiento/sobreseimiento.component').then(c => c.SobreseimientoComponent)
-    
-  },
-  {
     path: 'perfiles',
     loadComponent: () => import('./modules/perfil/perfil.component').then(c => c.PerfilComponent)
     
@@ -72,6 +57,11 @@ const routes: Routes = [
   {
     path: 'delitos',
     loadComponent: () => import('./modules/delito/delito.component').then(c => c.DelitoComponent)
+    
+  },
+  {
+    path: 'registroobjeciones',
+    loadComponent: () => import('./modules/registroobjecion/registroobjecion.component').then(c => c.RegistroobjecionComponent)
     
   },
   {
