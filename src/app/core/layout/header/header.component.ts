@@ -89,32 +89,18 @@ export class HeaderComponent {
         {
             label: 'Tipo Objecion',
             icon: 'pi pi-book',
-            items: [
-                {
-                    label: 'Sobreseimiento',
-                    icon: 'pi pi-check',
-                    items: [],
-                    routerLink: ['/sobreseimientos'],
-                    routerLinkActive: 'active'
-                },
-                {
-                    label: 'Rechazo',
-                    icon: 'pi pi-times-circle',
-                    items: [],
-                    routerLink: ['/rechzos'],
-                    routerLinkActive: 'active'
-                },
-                {
-                    label: 'Desestimacion',
-                    icon: 'pi pi-arrow-circle-down',
-                    items: [],
-                    routerLink: ['/desestimaciones'],
-                    routerLinkActive: 'active'
-                }
-            ],
+            items: [],
             routerLink: ['/tipoobjeciones'],
             routerLinkActive: 'active'
-        },{
+        },
+        {
+            label: 'Registro Objecion',
+            icon: 'pi pi-book',
+            items: [],
+            routerLink: ['/registroobjeciones'],
+            routerLinkActive: 'active'
+        },
+        {
             label: 'Usuario Perfil',
             icon: 'pi pi-user',
             items: [],

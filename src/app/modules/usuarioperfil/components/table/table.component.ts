@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Output, inject, signal } from '@angular/core';
 import { Userprofile } from '@core/models/Userprofile';
-import { UserprofileService } from '../../services/usuarioperfil.service';
+import { UsuarioPerfilService } from '../../services/usuarioperfil.service';
 import { HelpersService } from '@core/services/helpers.service';
 import { Table } from 'primeng/table';
 
@@ -13,7 +13,7 @@ import { Table } from 'primeng/table';
 export class TableComponent {
   @Output() rowSelected = new EventEmitter<Userprofile>();
 
-  private usuarioperfilService = inject(UserprofileService);
+  private usuarioperfilService = inject(UsuarioPerfilService);
   private helpersService = inject(HelpersService);
 
   usuarioperfiles = signal<Userprofile[]>([]);
