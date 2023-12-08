@@ -32,6 +32,8 @@ import { DelitoService } from 'src/app/modules/delito/services/delito.service';
 import { Delito } from '@core/models/Delito';
 import { DesarchivoService } from 'src/app/modules/desarchivo/services/desarchivo.service';
 import { Desarchivo } from '@core/models/Desarchivo';
+import { InstructivoService } from 'src/app/modules/instructivo/services/instructivo.service';
+import { Instructivo } from '@core/models/Instructivo';
 
 @Component({
   selector: 'app-toolbar-common',
@@ -43,8 +45,8 @@ import { Desarchivo } from '@core/models/Desarchivo';
 export class ToolbarComponent {
 
 
-  @Input() serviceGeneric: PersonService | UsuarioService | CargoService | UnidadService |  FuncionarioService | PerfilService | TipoDelitoService | DelitoService | DesarchivoService | TipoobjecionService| UserprofileService | DesestimacionService | RechzoService | SobreseimientoService  |null  = null;
-  @Input() object: Person | User | Cargo | Unidad | Funcionario | Tipoobjecion | Userprofile | Rodesestimacion | Rorechazo | Rosobreseimiento | Perfil | TipoDelito | Delito | Desarchivo | null = null;
+  @Input() serviceGeneric: PersonService | UsuarioService | CargoService | UnidadService |  FuncionarioService | PerfilService | TipoDelitoService | DelitoService | DesarchivoService | TipoobjecionService| UserprofileService | DesestimacionService | RechzoService | SobreseimientoService | InstructivoService  |null  = null;
+  @Input() object: Person | User | Cargo | Unidad | Funcionario | Tipoobjecion | Userprofile | Rodesestimacion | Rorechazo | Rosobreseimiento | Perfil | TipoDelito | Delito | Desarchivo | Instructivo | null = null;
   tableComponent: any;
   formComponent: any;
   modalDeleteComponent: any;

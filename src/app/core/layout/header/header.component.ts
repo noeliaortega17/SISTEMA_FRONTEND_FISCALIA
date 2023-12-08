@@ -75,6 +75,13 @@ export class HeaderComponent {
             routerLinkActive: 'active'
         },
         {
+            label: 'Instructivos',
+            icon: 'pi pi-user',
+            items: [],
+            routerLink: ['/instructivos'],
+            routerLinkActive: 'active'
+        },
+        {
             label: 'Tipo Objecion',
             icon: 'pi pi-book',
             items: [
