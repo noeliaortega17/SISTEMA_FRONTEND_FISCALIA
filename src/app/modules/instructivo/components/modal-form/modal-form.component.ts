@@ -4,7 +4,7 @@ import { HelpersService } from '@core/services/helpers.service';
 import { InstructivoService } from '../../services/instructivo.service';
 import { Instructivo } from '@core/models/Instructivo';
 import { TableComponent } from '../table/table.component';
-import { toBase64 } from 'ngx-file-saver';
+
 
 @Component({
   selector: 'app-modal-form',
