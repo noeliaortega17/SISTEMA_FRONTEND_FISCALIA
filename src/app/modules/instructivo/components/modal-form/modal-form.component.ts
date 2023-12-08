@@ -4,6 +4,7 @@ import { HelpersService } from '@core/services/helpers.service';
 import { InstructivoService } from '../../services/instructivo.service';
 import { Instructivo } from '@core/models/Instructivo';
 import { TableComponent } from '../table/table.component';
+import { toBase64 } from 'ngx-file-saver';
 
 @Component({
   selector: 'app-modal-form',
@@ -17,13 +18,7 @@ export class ModalFormComponent {
   private helpersService = inject(HelpersService);
   private instructivoService = inject(InstructivoService);
 
-  ngOnInit() {
-    this.instructivoService.eventFormComponent.emit(this);
-    this.instructivoService.eventTableComponent.subscribe((tableComponent) => {
-      this.tableComponent = tableComponent;
-    });
-  };
-
+  
   instructivo!: Instructivo; 
   openModal: boolean = false;
   tittleForm: string = "";
@@ -34,9 +29,64 @@ export class ModalFormComponent {
     id: [],
     cite: [, Validators.required,],
     descripcion: [, [Validators.required]],
-    fiscaliaGeneral: [, Validators.required,],
+    fiscaliaGeneral: [, [Validators.required]],
     fechaInstructivo: [, Validators.required,],
+    pdf: [],
   });
+
+
+  uploadedFile: string = '';
+
+
+    // async onUpload(event:any) {
+    //   console.log(event);
+    //     try {
+    //       const base64String = await this.convertirBlobABase64(event.currentFiles[0]);
+    //       console.log(base64String);
+    //       this.uploadedFile = base64String;
+    //       // Aquí puedes hacer lo que necesites con la cadena Base64, como enviarla a un servidor, mostrarla en la interfaz, etc.
+    //     } catch (error) {
+    //       console.error('Error al convertir Blob a Base64:', error);
+    //     }
+      
+        // for(let file of event.files) {
+        //     this.uploadedFiles.push(file);
+        // }
+      // }
+      
+
+      async onUpload(event: any): Promise<void> {
+        console.log(event);
+        
+        const archivo = event.currentFiles[0];
+    
+        if (archivo) {
+          try {
+            let base64 = archivo.readAsDataURL();
+            console.log(base64);
+            this.uploadedFile = base64;
+          } catch (error) {
+            console.error('Error al convertir archivo a Base64:', error);
+          }
+        }
+      }
+  
+    // Ejemplo de uso (asumiendo que tienes un Blob llamado 'blobPdf')
+
+
+
+
+
+
+
+
+ 
+  ngOnInit() {
+    this.instructivoService.eventFormComponent.emit(this);
+    this.instructivoService.eventTableComponent.subscribe((tableComponent) => {
+      this.tableComponent = tableComponent;
+    });
+  };
 
   hideModal() {
     this.openModal = false;
@@ -85,6 +135,7 @@ export class ModalFormComponent {
     const data: Instructivo = {
       ...this.formInstructivo.value,
     };
+    data.pdf = this.uploadedFile;
     this.instructivoService.create(data).subscribe({
       next: (res) => { 
         this.tableComponent.reload();

@@ -37,4 +37,37 @@ export class InstructivoService {
     return this.http.delete(this.serverUrl + 'instructivo/' + id)
   }
 
+  descargarPdf(base64String: string, nombreArchivo: string): void {
+    const byteCharacters = atob(base64String);
+    const byteNumbers = new Array(byteCharacters.length);
+    for (let i = 0; i < byteCharacters.length; i++) {
+      byteNumbers[i] = byteCharacters.charCodeAt(i);
+    }
+    const byteArray = new Uint8Array(byteNumbers);
+    const blob = new Blob([byteArray], { type: 'application/pdf' });
+
+    // Crear un enlace temporal para la descarga
+    const link = document.createElement('a');
+    link.href = window.URL.createObjectURL(blob);
+    link.download = nombreArchivo;
+
+    // Simular clic en el enlace para iniciar la descarga
+    link.click();
+  }
+
+  convertirArchivoABase64(archivo: File): Promise<string> {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+
+      reader.onloadend = () => {
+        resolve(reader.result as string);
+      };
+
+      reader.onerror = reject;
+
+      // Leer el contenido del archivo como una cadena Base64
+      reader.readAsDataURL(archivo);
+    });
+  }
+
 }

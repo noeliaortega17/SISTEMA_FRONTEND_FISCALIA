@@ -31,6 +31,7 @@
     
     <ng-template pTemplate="header">
         <tr>
+            <th pSortableColumn="nombre">PDF <p-sortIcon field="nombre"></p-sortIcon></th>
             <th pSortableColumn="nombre">Cite <p-sortIcon field="nombre"></p-sortIcon></th>
             <th pSortableColumn="apellidoPat">Descripción <p-sortIcon field="apellidoPat"></p-sortIcon></th>
             <th pSortableColumn="apellidoMat">Fiscalia General <p-sortIcon field="apellidoMat"></p-sortIcon></th>
@@ -39,6 +40,7 @@
     </ng-template>
     <ng-template pTemplate="body" let-instructivo>
         <tr [pSelectableRow]="instructivo">
+            <td class="text-center"> <i class="pi pi-check" (click)="donwloadPdf(instructivo.pdf)" ></i> </td>
             <td>{{ instructivo.cite }}</td>
             <td>{{ instructivo.descripcion }}</td>
             <td>{{ (instructivo.fiscaliaGeneral)? "SI" : "NO" }}</td>

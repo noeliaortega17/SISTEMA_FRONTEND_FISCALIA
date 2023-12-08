@@ -12,4 +12,5 @@ export class Instructivo  {
     descripcion:         string | null = null;
     fiscaliaGeneral:     boolean| null = null;
     fechaInstructivo:    Date   | null = null;
+    pdf:    string   | null = null;
 }

@@ -71,4 +71,8 @@ export class TableComponent {
     this.rowSelected.emit(this.selectedInstructivo());
   }  
 
+  donwloadPdf( base64: string ) {
+    this.instructivoService.descargarPdf(base64, 'aaa.pdf');
+  }
+
 }
