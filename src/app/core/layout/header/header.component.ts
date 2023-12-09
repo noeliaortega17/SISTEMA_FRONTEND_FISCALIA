@@ -67,15 +67,7 @@ export class HeaderComponent {
         {
             label: 'Unidad',
             icon: 'pi pi-apple',
-            items: [
-                {
-                    label: 'Unidad 2',
-                    icon: 'pi pi-check',
-                    items: [],
-                    routerLink: ['/unidades'],
-                    routerLinkActive: 'active'
-                }
-            ],
+            items: [],
             routerLink: ['/unidades'],
             routerLinkActive: 'active'
         },
@@ -115,17 +107,24 @@ export class HeaderComponent {
             routerLinkActive: 'active'
         },
         {
-            label: 'TipoDelito',
+            label: 'Tipos de Delito',
             icon: 'pi pi-book',
             items: [],
             routerLink: ['/tipoDelitos'],
             routerLinkActive: 'active'
         },
         {
-            label: 'Delito',
+            label: 'Delitos',
             icon: 'pi pi-book',
             items: [],
             routerLink: ['/delitos'],
+            routerLinkActive: 'active'
+        },
+        {
+            label: 'Desarchivos',
+            icon: 'pi pi-book',
+            items: [],
+            routerLink: ['/desarchivos'],
             routerLinkActive: 'active'
         },
     ] ;
