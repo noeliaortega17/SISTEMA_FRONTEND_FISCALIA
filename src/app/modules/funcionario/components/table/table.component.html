@@ -38,7 +38,7 @@
     </ng-template>
     <ng-template pTemplate="body" let-funcionario>
         <tr [pSelectableRow]="funcionario">
-            <td>{{ funcionario.idPersona.nombre }}</td>
+            <td>{{ funcionario.idPersona.nombre }} {{ funcionario.idPersona.apellidoPat }} {{ funcionario.idPersona.apellidoMat }}</td>
             <td>{{ funcionario.idCargo.descripcion }}</td>
             <td>{{ funcionario.idUnidad.descripcion }}</td>
         </tr>

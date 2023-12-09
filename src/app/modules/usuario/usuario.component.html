@@ -9,7 +9,7 @@
                 <div class="col-12 fadeindown animation-duration-400">
                     <div class="sombra-black border-round-xl p-2 surface-0">
                         <app-toolbar-common 
-                            [serviceGeneric]="userService" [object]="usuario()"/>  // aca puede ser usuario()?
+                            [serviceGeneric]="userService" [object]="usuario()"/>  
                         <app-modal-form></app-modal-form>
                         <app-table (rowSelected)="setObject($event)" ></app-table>
                         <app-modal-delete [serviceGeneric]="userService" [object]="usuario().id"></app-modal-delete>
