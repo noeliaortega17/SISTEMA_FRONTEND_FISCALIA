@@ -99,7 +99,7 @@ export class ModalFormComponent {
 
   openCreate(){
     this.reset();
-    this.tittleForm = "Nueva Funcionario";
+    this.tittleForm = "Nuevo Funcionario";
     this.openModal = true;
   };
 

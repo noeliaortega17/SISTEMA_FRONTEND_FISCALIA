@@ -10,7 +10,7 @@
                     <div class="form-group field mt-6" style="display: grid; grid-template-columns: auto auto;">
                         <label class="text-lg font-bold text-800"><span class="text-red-500">*</span> Fiscalia General</label>
                         <p-triStateCheckbox formControlName="fiscaliaGeneral" Id="checked"></p-triStateCheckbox>
-                        <label class="p-tristatecheckbox-label" for="checked">{{ formInstructivo.value.fiscaliaGeneral === null ? 'nulo' : formInstructivo.value.fiscaliaGeneral }}</label>
+                        <!--   <label class="p-tristatecheckbox-label" for="checked">{{ formInstructivo.value.fiscaliaGeneral === null ? 'nulo' : formInstructivo.value.fiscaliaGeneral }}</label>-->
                     </div>
                     <div class="form-group field mt-6">
                         <span class="p-float-label">
@@ -31,7 +31,7 @@
 
                     <div class="form-group field mt-6">
                         <span class="p-float-label">
-                            <p-calendar id = "fechaInstructivo" formControlName="fechaInstructivo"></p-calendar>
+                            <p-calendar id = "fechaInstructivo" formControlName="fechaInstructivo" dateFormat="dd/mm/yy"></p-calendar>
                             <label htmlFor="fechaInstructivo" class="text-lg font-bold text-800"><span class="text-red-500">*</span> Fecha</label>
                         </span>
                         <small class="p-error block mt-2" *ngIf="formInstructivo.controls['fechaInstructivo'].touched && formInstructivo.get('fechaInstructivo')?.hasError('required')" >El campo Fecha es obligatorio</small>

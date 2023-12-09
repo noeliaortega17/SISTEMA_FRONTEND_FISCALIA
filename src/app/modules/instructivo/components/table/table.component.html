@@ -40,7 +40,7 @@
     </ng-template>
     <ng-template pTemplate="body" let-instructivo>
         <tr [pSelectableRow]="instructivo">
-            <td class="text-center"> <i class="pi pi-check" (click)="donwloadPdf(instructivo.pdf)" ></i> </td>
+            <td class="text-center"> <i class="pi pi-file-pdf" (click)="donwloadPdf(instructivo.pdf)" ></i> </td>
             <td>{{ instructivo.cite }}</td>
             <td>{{ instructivo.descripcion }}</td>
             <td>{{ (instructivo.fiscaliaGeneral)? "SI" : "NO" }}</td>
