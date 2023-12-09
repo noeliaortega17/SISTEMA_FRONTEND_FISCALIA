@@ -40,7 +40,7 @@
                     </div>
                     <div class="form-group field mt-6">
                         <span class="p-float-label">
-                            <input type="number" pInputText id="numeroResolucion" [(ngModel)]="registroobjecion.numeroResolucion" formControlName="numeroResolucion" class="p-inputtext-sm capitalize mt-1" />
+                            <input type="text" pInputText id="numeroResolucion" [(ngModel)]="registroobjecion.numeroResolucion" formControlName="numeroResolucion" class="p-inputtext-sm capitalize mt-1" />
                             <label htmlFor="numeroResolucion" class="text-lg font-bold text-800"><span class="text-red-500">*</span> Número de Resolución</label>
                         </span>
                         <small class="p-error block mt-2" *ngIf="formRegistroObjecion.controls['numeroResolucion'].touched && formRegistroObjecion.get('numeroResolucion')?.hasError('required')" >El campo Número de resolución es obligatorio</small>
@@ -48,11 +48,36 @@
                    
                     <div class="form-group field mt-6">
                         <span class="p-float-label">
-                            <input type="number" pInputText id="cud" [(ngModel)]="registroobjecion.cud" formControlName="cud" class="p-inputtext-sm mt-1" />
+                            <input type="text" pInputText id="cud" [(ngModel)]="registroobjecion.cud" formControlName="cud" class="p-inputtext-sm mt-1" />
                             <label htmlFor="cud" class="text-lg font-bold text-800"><span class="text-red-500">*</span> CUD</label>
                         </span>
                         <small class="p-error block mt-2" *ngIf="formRegistroObjecion.controls['cud'].touched && formRegistroObjecion.get('cud')?.hasError('required')" >El campo CUD es obligatorio</small>
                     </div>
+
+
+                    <div class="form-group field mt-6">
+                        <span class="p-float-label">
+                            <p-calendar id = "fechaAsignacion" formControlName="fechaAsignacion"></p-calendar>
+                            <label htmlFor="fechaAsignacion" class="text-lg font-bold text-800"><span class="text-red-500">*</span> Fecha de Asignación</label>
+                        </span>
+                        <small class="p-error block mt-2" *ngIf="formRegistroObjecion.controls['fechaAsignacion'].touched && formRegistroObjecion.get('fechaAsignacion')?.hasError('required')" >El campo Fecha Asignación es obligatorio</small>
+                    </div>
+                    <div class="form-group field mt-6">
+                        <span class="p-float-label">
+                            <p-calendar id = "fechaRecepcion" formControlName="fechaRecepcion"></p-calendar>
+                            <label htmlFor="fechaRecepcion" class="text-lg font-bold text-800"><span class="text-red-500">*</span> Fecha de Recepción</label>
+                        </span>
+                        <small class="p-error block mt-2" *ngIf="formRegistroObjecion.controls['fechaRecepcion'].touched && formRegistroObjecion.get('fechaRecepcion')?.hasError('required')" >El campo Fecha de Recepción es obligatorio</small>
+                    </div>
+                    <div class="form-group field mt-6">
+                        <span class="p-float-label">
+                            <p-calendar id = "fechaDevolucion" formControlName="fechaDevolucion"></p-calendar>
+                            <label htmlFor="fechaDevolucion" class="text-lg font-bold text-800"><span class="text-red-500">*</span> Fecha de Devolución</label>
+                        </span>
+                        <small class="p-error block mt-2" *ngIf="formRegistroObjecion.controls['fechaDevolucion'].touched && formRegistroObjecion.get('fechaDevolucion')?.hasError('required')" >El campo Fecha de Devolución es obligatorio</small>
+                    </div>
+
+
                 </ng-template>
                 <ng-template pTemplate="footer">
                     <input type="hidden" pInputText id="id" [(ngModel)]="registroobjecion.id" formControlName="id"/>

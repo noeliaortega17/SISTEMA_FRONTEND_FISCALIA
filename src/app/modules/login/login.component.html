@@ -1,7 +1,10 @@
-<div class="w-full" style="height: 85vh;">
+<div class="w-full" style="height: 85vh;" >
     <form [formGroup]="formLogin">
     <div class="flex justify-content-center align-items-center">
-        <p-card header="Quien anda ahí?"  class="p-4" [style]="{ width: '360px' }">
+        <p-card header="FISCALÍA DEPARTAMENTAL DE POTOSÍ"  class="p-4 "  [style]="{ width: '250px' }">
+            
+            <img src="../assets/images/Logo.png" alt="imagen bolivia" height="150" class="justify-content-center"> 
+            
             <div class="grid">
                 <div class="col-12">
                     <div class="form-group field mt-5 fadeinup animation-duration-500">
@@ -11,7 +14,7 @@
                         </span>
                         <small class="p-error block mt-2" *ngIf="formLogin.controls['user'].touched && formLogin.get('user')?.hasError('required')" >El campo Correo es obligatorio</small>
                     </div>
-                    
+               
                     <div class="form-group field mt-5 fadeinup animation-duration-500">
                         <span class="p-float-label pt-2">
                             <p-password id="password" formControlName="password" class="p-inputtext-sm" [toggleMask]="true" [feedback]="false"></p-password>
@@ -19,8 +22,9 @@
                         </span>
                         <small class="p-error block mt-2" *ngIf="formLogin.controls['password'].touched && formLogin.get('password')?.hasError('required')" >El campo Contraseña es obligatorio</small>
                     </div>
+                    
                 </div>
-            </div>
+            </div> 
             <ng-template pTemplate="footer">
                 <!-- <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-secondary p-button-rounded mr-2 p-button-sm sombra-black hover-secondary" (click)="hideModal()"></button> -->
                             <button pButton pRipple label="Login" icon="pi pi-sign-in" class="p-button-warning p-button-rounded mr-2 sombra-black p-button-sm hover-warning" (click)="submitLogin()"

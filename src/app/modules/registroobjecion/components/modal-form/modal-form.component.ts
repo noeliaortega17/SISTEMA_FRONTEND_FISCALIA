@@ -47,7 +47,10 @@ export class ModalFormComponent {
     idFuncionario: [ , Validators.required,],
     idTipoObjecion: [ , Validators.required,],
     numeroResolucion: [ , Validators.required,],
-    cud: [ , Validators.required,]
+    cud: [ , Validators.required,],
+    fechaAsignacion: [, Validators.required,],
+    fechaRecepcion: [, Validators.required,],
+    fechaDevolucion: [, Validators.required,],
   });
 
   getAllFuncionarios() {

@@ -20,114 +20,140 @@ export class HeaderComponent {
   
     items: { label: string, icon: string, items: any, routerLink: string[], routerLinkActive: string }[] = [];
     itemsBase: { label: string, icon: string, items: any, routerLink: string[], routerLinkActive: string }[] = [
+        
         {
-            label: 'Personas',
-            icon: 'pi pi-user',
-            items: [
-                // {
-                //     label: 'Nuevo',
-                //     icon: 'pi pi-fw pi-plus',
-                // },
-                // {
-                //     label: 'Editar',
-                //     icon: 'pi pi-fw pi-pencil',
-                // },
-                // {
-                //     separator: true
-                // },
-                // {
-                //     label: 'Borrar',
-                //     icon: 'pi pi-fw pi-trash'
-                // }
-            ],
-            routerLink: ['/people'],
-            routerLinkActive: 'active'
-        },
-        {
-            label: 'Usuarios',
-            icon: 'pi pi-user',
-            items: [],
-            routerLink: ['/users'],
-            routerLinkActive: 'active'
-        },
-        {
-            label: 'Cargos',
-            icon: 'pi pi-user',
-            items: [],
-            routerLink: ['/cargo'],
-            routerLinkActive: 'active'
-        },
-        {
-            label: 'Funcionarios',
-            icon: 'pi pi-user',
-            items: [],
-            routerLink: ['/funcionarios'],
-            routerLinkActive: 'active'
-        },
-        {
-            label: 'Unidad',
-            icon: 'pi pi-apple',
+            label: 'Gestión de Usuarios',
+            icon: 'pi pi-users',
             items: [
                 {
-                    label: 'Unidad 2',
-                    icon: 'pi pi-check',
+                    label: 'Personas',
+                    icon: 'pi pi-user',
+                    items: [
+                        // {
+                        //     label: 'Nuevo',
+                        //     icon: 'pi pi-fw pi-plus',
+                        // },
+                        // {
+                        //     label: 'Editar',
+                        //     icon: 'pi pi-fw pi-pencil',
+                        // },
+                        // {
+                        //     separator: true
+                        // },
+                        // {
+                        //     label: 'Borrar',
+                        //     icon: 'pi pi-fw pi-trash'
+                        // }
+                    ],
+                    routerLink: ['/people'],
+                    routerLinkActive: 'active'
+                },
+                {
+                    label: 'Usuarios',
+                    icon: 'pi pi-id-card',
+                    items: [],
+                    routerLink: ['/users'],
+                    routerLinkActive: 'active'
+                },
+                {
+                    label: 'Cargos',
+                    icon: 'pi pi-briefcase',
+                    items: [],
+                    routerLink: ['/cargo'],
+                    routerLinkActive: 'active'
+                },
+                {
+                    label: 'Funcionarios',
+                    icon: 'pi pi-user-plus',
+                    items: [],
+                    routerLink: ['/funcionarios'],
+                    routerLinkActive: 'active'
+                },
+                {
+                    label: 'Unidad',
+                    icon: 'pi pi-th-large',
                     items: [],
                     routerLink: ['/unidades'],
                     routerLinkActive: 'active'
-                }
+                },
+                {
+                    label: 'Usuario Perfil',
+                    icon: 'pi pi-user-edit',
+                    items: [],
+                    routerLink: ['/usuarioperfiles'],
+                    routerLinkActive: 'active'
+                },
+                {
+                    label: 'Perfil',
+                    icon: 'pi pi-id-card',
+                    items: [],
+                    routerLink: ['/perfiles'],
+                    routerLinkActive: 'active'
+                },
             ],
-            routerLink: ['/unidades'],
+            routerLink: [],
             routerLinkActive: 'active'
         },
         {
-            label: 'Instructivos',
-            icon: 'pi pi-user',
-            items: [],
-            routerLink: ['/instructivos'],
-            routerLinkActive: 'active'
-        },
-        {
-            label: 'Tipo Objecion',
+            label: 'Gestión de Cuaderno Desarchivados',
             icon: 'pi pi-book',
-            items: [],
-            routerLink: ['/tipoobjeciones'],
+            items: [
+                {
+                    label: 'TipoDelito',
+                    icon: 'pi pi-book',
+                    items: [],
+                    routerLink: ['/tipoDelitos'],
+                    routerLinkActive: 'active'
+                },
+                {
+                    label: 'Delito',
+                    icon: 'pi pi-book',
+                    items: [],
+                    routerLink: ['/delitos'],
+                    routerLinkActive: 'active'
+                },
+            ],
+            routerLink: [],
             routerLinkActive: 'active'
         },
         {
-            label: 'Registro Objecion',
+            label: 'Gestión de Instructivos',
             icon: 'pi pi-book',
-            items: [],
-            routerLink: ['/registroobjeciones'],
+            items: [
+                {
+                    label: 'Instructivos',
+                    icon: 'pi pi-book',
+                    items: [],
+                    routerLink: ['/instructivos'],
+                    routerLinkActive: 'active'
+                },
+            ],
+            routerLink: [],
             routerLinkActive: 'active'
         },
         {
-            label: 'Usuario Perfil',
-            icon: 'pi pi-user',
-            items: [],
-            routerLink: ['/usuarioperfiles'],
-            routerLinkActive: 'active'
-        },
-        {
-            label: 'Perfil',
+            label: 'Gestión de Resoluciones Jerarquicas',
             icon: 'pi pi-book',
-            items: [],
-            routerLink: ['/perfiles'],
+            items: [
+                {
+                    label: 'Tipo Objecion',
+                    icon: 'pi pi-book',
+                    items: [],
+                    routerLink: ['/tipoobjeciones'],
+                    routerLinkActive: 'active'
+                },
+                {
+                    label: 'Registro Objecion',
+                    icon: 'pi pi-book',
+                    items: [],
+                    routerLink: ['/registroobjeciones'],
+                    routerLinkActive: 'active'
+                },
+            ],
+            routerLink: [],
             routerLinkActive: 'active'
         },
-        {
-            label: 'TipoDelito',
-            icon: 'pi pi-book',
-            items: [],
-            routerLink: ['/tipoDelitos'],
-            routerLinkActive: 'active'
-        },
-        {
-            label: 'Delito',
-            icon: 'pi pi-book',
-            items: [],
-            routerLink: ['/delitos'],
-            routerLinkActive: 'active'
-        },
+        
     ] ;
 
     itemsLogin: { label: string, icon: string, routerLink: string[], routerLinkActive: string }[] = [

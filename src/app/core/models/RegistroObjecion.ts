@@ -14,4 +14,7 @@ export class RegistroObjecion  {
     idFuncionario:       Funcionario | null = null;
     numeroResolucion:    number | null = null;
     cud:                 number | null = null;
+    fechaAsignacion:      Date | null = null;
+    fechaRecepcion:      Date | null = null;
+    fechaDevolucion:      Date | null = null;
 }
