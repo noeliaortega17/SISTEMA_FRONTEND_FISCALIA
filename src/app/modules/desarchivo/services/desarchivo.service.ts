@@ -30,7 +30,7 @@ export class DesarchivoService {
     return this.http.post<Desarchivo>(this.serverUrl + 'desarchivo', desarchivo)
   }
   
-  public update(id: number, desarchivo: Delito) {
+  public update(id: number, desarchivo: Desarchivo) {
     return this.http.put<Desarchivo>(this.serverUrl + 'desarchivo/' + id, desarchivo)
   }
 

@@ -105,7 +105,7 @@ export class ModalFormComponent {
         next: (res) => { 
           this.tableComponent.reload();
           this.tableComponent.selectedTipoDelito.set( res );
-          this.helpersService.messageNotification("success", "Correcto", `El tipo Delito  ${res.descripcion} ha sido actualizado.`, 3000);
+          this.helpersService.messageNotification("success", "Correcto", `El Tipo de Delito  ${res.descripcion} ha sido actualizado.`, 3000);
           this.hideModal();
           this.reset();
         },

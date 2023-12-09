@@ -67,4 +67,5 @@ export class TableComponent {
     this.selectedDesarchivo.set(new Desarchivo);
     this.rowSelected.emit(this.selectedDesarchivo());
   }
+  
 }
