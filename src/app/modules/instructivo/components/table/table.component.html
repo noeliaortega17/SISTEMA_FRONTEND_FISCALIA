@@ -14,7 +14,7 @@
     dataKey="id"
 
     [loading]="loading()"
-    [globalFilterFields]="['nombre', 'apelidoPat']"
+    [globalFilterFields]="['cite', 'descripcion', 'fechaInstructivo']"
     (onRowSelect)="onRowSelect($event)"
     (onRowUnselect)="onRowUnselect()"
 >
@@ -44,7 +44,8 @@
             <td>{{ instructivo.cite }}</td>
             <td>{{ instructivo.descripcion }}</td>
             <td>{{ (instructivo.fiscaliaGeneral)? "SI" : "NO" }}</td>
-            <td>{{ instructivo.fechaInstructivo }}</td>
+            <!--<td>{{ instructivo.fechaInstructivo }}</td>-->
+            <td>25/12/2023</td>
         </tr>
     </ng-template>
 </p-table>

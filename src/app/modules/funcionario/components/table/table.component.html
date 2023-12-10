@@ -14,7 +14,7 @@
     dataKey="id"
 
     [loading]="loading()"
-    [globalFilterFields]="['descripcion', 'item']"
+    [globalFilterFields]="['idPersona.nombre','idCargo.descripcion', 'idUnidad.descripcion']"
     (onRowSelect)="onRowSelect($event)"
     (onRowUnselect)="onRowUnselect()"
 >

@@ -33,7 +33,7 @@ export class ModalFormComponent {
   public formPerson: FormGroup = this.formBuilder.group({
     id: [],
     nombre: [, Validators.required,],
-    apellidoPat: [, [Validators.required]],
+    apellidoPat: [,],
     apellidoMat: [, Validators.required,],
     ci: [, Validators.required,],
     celular: [, Validators.required,]

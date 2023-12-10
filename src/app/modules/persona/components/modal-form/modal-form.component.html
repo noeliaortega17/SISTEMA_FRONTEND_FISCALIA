@@ -21,7 +21,6 @@
                             <input type="text" pInputText id="apellidoPat" [(ngModel)]="person.apellidoPat" formControlName="apellidoPat" class="p-inputtext-sm mt-1" />
                             <label htmlFor="apellidoPat" class="text-lg font-bold text-800"><span class="text-red-500">*</span> Apellido Paterno</label>
                         </span>
-                        <small class="p-error block mt-2" *ngIf="formPerson.controls['apellidoPat'].touched && formPerson.get('apellidoPat')?.hasError('required')" >El campo Valor es obligatorio</small>
                     </div>
                     
                     <div class="form-group field mt-6">
