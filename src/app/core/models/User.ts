@@ -10,6 +10,6 @@ export class User  {
     usuario_eliminacion: number | null = null;
     id:                  number | null = null;
     usuario:              string | null = null;
-    contraseña:         string | null = null;
+    contrasena:         string | null = null;
     idFuncionario:         Funcionario | null = null;
 }

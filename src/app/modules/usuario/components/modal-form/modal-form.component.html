@@ -6,20 +6,38 @@
                 <ng-template pTemplate="content">
                     
                     <p class="text-center mb-6"><p-badge [value]="'Los campos marcados con * son obligatorios'"></p-badge></p>
-                    
-               
+                
                     <div class="form-group field mt-6">
                         <span class="p-float-label">
-                            <p-dropdown [options]="funcionarios()" [(ngModel)]="user.usuario" placeholder="Selecione un funcionario" optionLabel="idPersona.nombre" type="text" pInputText id="usuario"  formControlName="usuario" class="p-inputtext-sm capitalize mt-1" />
-                            <label htmlFor="usuario" class="text-lg font-bold text-800"><span class="text-red-500">*</span> Nombre</label>
+                            <input type="text" pInputText id="usuario" [(ngModel)]="user.usuario" formControlName="usuario" class="p-inputtext-sm mt-1" />
+                            <label htmlFor="usuario" class="text-lg font-bold text-800"><span class="text-red-500">*</span> Usuario</label>
                         </span>
                         <small class="p-error block mt-2" *ngIf="formUser.controls['usuario'].touched && formUser.get('usuario')?.hasError('required')" >El campo Usuario es obligatorio</small>
                     </div>
-                   
+
                     <div class="form-group field mt-6">
                         <span class="p-float-label">
-                            <input type="text" pInputText id="idFuncionario" [(ngModel)]="user.idFuncionario" formControlName="idFuncionario" class="p-inputtext-sm mt-1" />
-                            <label htmlFor="idFuncionario" class="text-lg font-bold text-800"><span class="text-red-500">*</span> Funcionario</label>
+                            <input type="text" pInputText id="contrasena" [(ngModel)]="user.contrasena" formControlName="contrasena" class="p-inputtext-sm mt-1" />
+                            <label htmlFor="contrasena" class="text-lg font-bold text-800"><span class="text-red-500">*</span> Contraseña</label>
+                        </span>
+                        <small class="p-error block mt-2" *ngIf="formUser.controls['usuario'].touched && formUser.get('usuario')?.hasError('required')" >El campo Contraseña es obligatorio</small>
+                    </div>
+
+                    <div class="form-group field mt-6">
+                        <span class="p-float-label">
+                            <p-dropdown [options]="funcionarios()" 
+                                formControlName="idFuncionario"
+                                placeholder="Selecione un funcionario" 
+                                optionLabel="id"
+                                [(ngModel)]="user.idFuncionario" 
+                                [filter]="true"
+                                filterBy="id"
+                                filterPlaceholder="Buscar funcionarios"
+                                emptyFilterMessage="No existen coincidencias"
+                                [showClear]="true"                                
+                                class="p-inputtext-sm capitalize mt-1"
+                                appendTo="body"></p-dropdown>
+                            <label for="float-label" class="text-lg font-bold text-800"><i class="text-red-500">*</i>Funcionario</label>
                         </span>
                         <small class="p-error block mt-2" *ngIf="formUser.controls['idFuncionario'].touched && formUser.get('idFuncionario')?.hasError('required')" >El campo Funcionario es obligatorio</small>
                     </div>
