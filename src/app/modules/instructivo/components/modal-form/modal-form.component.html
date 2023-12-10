@@ -31,7 +31,7 @@
 
                     <div class="form-group field mt-6">
                         <span class="p-float-label">
-                            <p-calendar id = "fechaInstructivo" formControlName="fechaInstructivo" dateFormat="dd/mm/yy"></p-calendar>
+                            <p-calendar appendTo="body" id = "fechaInstructivo" formControlName="fechaInstructivo" dateFormat="dd/mm/yy"></p-calendar>
                             <label htmlFor="fechaInstructivo" class="text-lg font-bold text-800"><span class="text-red-500">*</span> Fecha</label>
                         </span>
                         <small class="p-error block mt-2" *ngIf="formInstructivo.controls['fechaInstructivo'].touched && formInstructivo.get('fechaInstructivo')?.hasError('required')" >El campo Fecha es obligatorio</small>

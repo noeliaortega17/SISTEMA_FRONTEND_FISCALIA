@@ -18,7 +18,8 @@
                                 filterBy="nombre"
                                 filterPlaceholder="Buscar personas"
                                 emptyFilterMessage="No existen coincidencias"
-                                [showClear]="true"></p-dropdown>
+                                [showClear]="true"
+                                appendTo="body"></p-dropdown>
                             <label for="float-label" class="text-lg font-bold text-800"><i class="text-red-500">*</i> Persona</label>
                         </span>
                         <small class="p-error block mt-2" *ngIf="formFuncionario.controls['idPersona'].touched && formFuncionario.get('idPersona')?.hasError('required')" >El campo Persona es obligatorio</small>
@@ -35,7 +36,8 @@
                                 filterBy="descripcion"
                                 filterPlaceholder="Buscar cargo"
                                 emptyFilterMessage="No existen coincidencias"
-                                [showClear]="true"></p-dropdown>
+                                [showClear]="true"
+                                appendTo="body"></p-dropdown>
                             <label for="float-label" class="text-lg font-bold text-800"><i class="text-red-500">*</i> Cargo</label>
                         </span>
                         <small class="p-error block mt-2" *ngIf="formFuncionario.controls['idCargo'].touched && formFuncionario.get('idCargo')?.hasError('required')" >El campo Cargo es obligatorio</small>
@@ -52,7 +54,8 @@
                                 filterBy="descripcion"
                                 filterPlaceholder="Buscar unidad"
                                 emptyFilterMessage="No existen coincidencias"
-                                [showClear]="true"></p-dropdown>
+                                [showClear]="true"
+                                appendTo="body"></p-dropdown>
                             <label for="float-label" class="text-lg font-bold text-800"><i class="text-red-500">*</i> Unidad</label>
                         </span>
                         <small class="p-error block mt-2" *ngIf="formFuncionario.controls['idUnidad'].touched && formFuncionario.get('idUnidad')?.hasError('required')" >El campo Unidad es obligatorio</small>

@@ -20,6 +20,7 @@ export class ModalFormComponent {
   private userService = inject(UsuarioService);
   private funcionarioService = inject(FuncionarioService);
 
+  funcionarios = signal<Funcionario[]>([]);
 
   ngOnInit() {
     this.userService.eventFormComponent.emit(this);
@@ -36,15 +37,12 @@ export class ModalFormComponent {
   tableComponent!: TableComponent;
   isLoading = false;
 
-  funcionarios = signal<Funcionario[]>([]);
 
   public formUser: FormGroup = this.formBuilder.group({
     id: [],
     usuario: [, Validators.required,],
     contrasena: [, Validators.required,],
-    idFuncionario: {
-      id: [, Validators.required,],
-    }
+    idFuncionario: [, Validators.required,],
   });
 
   getAllFuncionarios() {
