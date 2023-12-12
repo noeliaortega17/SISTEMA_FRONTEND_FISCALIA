@@ -89,7 +89,7 @@ export class ModalFormComponent {
     this.personService.create(data).subscribe({
       next: (res) => { 
         this.tableComponent.reload();
-        this.helpersService.messageNotification("success", "Correcto", `La persona ${res.nombre} ha sido creada.`, 3000);
+        this.helpersService.messageNotification("success", "Correcto", `La persona ${res.nombre} ${res.apellidoPat} ${res.apellidoMat} ha sido creada.`, 3000);
         this.hideModal();
         this.reset();
       },
@@ -109,7 +109,7 @@ export class ModalFormComponent {
         next: (res) => { 
           this.tableComponent.reload();
           this.tableComponent.selectedPerson.set( res );
-          this.helpersService.messageNotification("success", "Correcto", `La persona ${res.nombre} ha sido actualizada.`, 3000);
+          this.helpersService.messageNotification("success", "Correcto", `La persona ${res.nombre} ${res.apellidoPat} ${res.apellidoMat} ha sido actualizada.`, 3000);
           this.hideModal();
           this.reset();
         },

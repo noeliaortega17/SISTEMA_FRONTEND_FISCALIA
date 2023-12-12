@@ -59,13 +59,13 @@ export class HeaderComponent {
                     routerLink: ['/unidades'],
                     routerLinkActive: 'active'
                 },
-                {
-                    label: 'Usuario Perfil',
-                    icon: 'pi pi-user-edit',
-                    items: [],
-                    routerLink: ['/usuarioperfiles'],
-                    routerLinkActive: 'active'
-                },
+               // {
+            //   label: 'Usuario Perfil',
+               // icon: 'pi pi-user-edit',
+                //    items: [],
+                //    routerLink: ['/usuarioperfiles'],
+                //    routerLinkActive: 'active'
+                //},
                 {
                     label: 'Perfiles',
                     icon: 'pi pi-id-card',
@@ -79,7 +79,7 @@ export class HeaderComponent {
         },
         {
             label: 'Instructivos',
-            icon: 'pi pi-user',
+            icon: 'pi pi-book',
             items: [],
             routerLink: ['/instructivos'],
             routerLinkActive: 'active'

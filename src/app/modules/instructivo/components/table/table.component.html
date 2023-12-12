@@ -14,7 +14,7 @@
     dataKey="id"
 
     [loading]="loading()"
-    [globalFilterFields]="['cite', 'descripcion', 'fechaInstructivo']"
+    [globalFilterFields]="['cite', 'descripcion', 'fechaInstructivo','idFuncionario.idPersona.nombre']"
     (onRowSelect)="onRowSelect($event)"
     (onRowUnselect)="onRowUnselect()"
 >
@@ -31,11 +31,12 @@
     
     <ng-template pTemplate="header">
         <tr>
-            <th pSortableColumn="nombre">PDF <p-sortIcon field="nombre"></p-sortIcon></th>
-            <th pSortableColumn="nombre">Cite <p-sortIcon field="nombre"></p-sortIcon></th>
+            <th pSortableColumn="nombre">PDF <p-sortIcon field="nombre"></p-sortIcon></th>  
+            <th pSortableColumn="nombre">Cite <p-sortIcon field="nombre"></p-sortIcon></th>          
             <th pSortableColumn="apellidoPat">Descripción <p-sortIcon field="apellidoPat"></p-sortIcon></th>
-            <th pSortableColumn="apellidoMat">Fiscalia General <p-sortIcon field="apellidoMat"></p-sortIcon></th>
+            <th pSortableColumn="idFuncionario">Funcionario<p-sortIcon field="idFuncionario"></p-sortIcon></th>
             <th pSortableColumn="ci">Fecha<p-sortIcon field="ci"></p-sortIcon></th>
+            <th pSortableColumn="apellidoMat">Fiscalia General <p-sortIcon field="apellidoMat"></p-sortIcon></th>
         </tr>
     </ng-template>
     <ng-template pTemplate="body" let-instructivo>
@@ -43,9 +44,10 @@
             <td class="text-center"> <i class="pi pi-file-pdf" (click)="donwloadPdf(instructivo.pdf)" ></i> </td>
             <td>{{ instructivo.cite }}</td>
             <td>{{ instructivo.descripcion }}</td>
+            <td>{{ instructivo.idFuncionario.idPersona.nombre }} {{ instructivo.idFuncionario.idPersona.apellidoPat }} {{ instructivo.idFuncionario.idPersona.apellidoMat }}</td>
+            <td>{{ helpersService.formatDate(instructivo.fechaInstructivo) }}</td>
             <td>{{ (instructivo.fiscaliaGeneral)? "SI" : "NO" }}</td>
-            <!--<td>{{ instructivo.fechaInstructivo }}</td>-->
-            <td>25/12/2023</td>
+
         </tr>
     </ng-template>
 </p-table>

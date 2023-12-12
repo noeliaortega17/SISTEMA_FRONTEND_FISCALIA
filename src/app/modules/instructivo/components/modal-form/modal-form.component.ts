@@ -1,9 +1,11 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HelpersService } from '@core/services/helpers.service';
 import { InstructivoService } from '../../services/instructivo.service';
 import { Instructivo } from '@core/models/Instructivo';
 import { TableComponent } from '../table/table.component';
+import { Funcionario } from '@core/models/Funcionario';
+import { FuncionarioService } from 'src/app/modules/funcionario/services/funcionario.service';
 
 
 @Component({
@@ -17,8 +19,18 @@ export class ModalFormComponent {
   private formBuilder = inject(FormBuilder);
   private helpersService = inject(HelpersService);
   private instructivoService = inject(InstructivoService);
+  private funcionarioService = inject(FuncionarioService);
 
-  
+  funcionarios = signal<Funcionario[]>([]);
+
+  ngOnInit() {
+    this.instructivoService.eventFormComponent.emit(this);
+    this.instructivoService.eventTableComponent.subscribe((tableComponent) => {
+      this.tableComponent = tableComponent;
+    });
+    this.getAllFuncionarios();
+  };
+
   instructivo!: Instructivo; 
   openModal: boolean = false;
   tittleForm: string = "";
@@ -32,8 +44,20 @@ export class ModalFormComponent {
     fiscaliaGeneral: [, [Validators.required]],
     fechaInstructivo: [, Validators.required,],
     pdf: [],
+    idFuncionario: [,],
   });
 
+    getAllFuncionarios() {
+    this.funcionarioService.getAll().subscribe({
+      next: (res) => { 
+        this.funcionarios.set(res);
+      },
+      error: (err) => { 
+        console.log(err);
+        this.helpersService.messageNotification("error", err.error.error, err.error.message, 3000);
+      }
+    })
+  }
 
   uploadedFile: string = '';
 
@@ -81,12 +105,7 @@ export class ModalFormComponent {
 
 
  
-  ngOnInit() {
-    this.instructivoService.eventFormComponent.emit(this);
-    this.instructivoService.eventTableComponent.subscribe((tableComponent) => {
-      this.tableComponent = tableComponent;
-    });
-  };
+
 
   hideModal() {
     this.openModal = false;

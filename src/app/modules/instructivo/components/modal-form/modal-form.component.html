@@ -36,13 +36,32 @@
                         </span>
                         <small class="p-error block mt-2" *ngIf="formInstructivo.controls['fechaInstructivo'].touched && formInstructivo.get('fechaInstructivo')?.hasError('required')" >El campo Fecha es obligatorio</small>
                     </div>
+
+                    <div class="form-group field mt-6">
+                        <span class="p-float-label">
+                            <p-dropdown [options]="funcionarios()" 
+                                formControlName="idFuncionario"
+                                placeholder="Selecione un funcionario" 
+                                optionLabel="idPersona.nombre"
+                                [(ngModel)]="instructivo.idFuncionario" 
+                                [filter]="true"
+                                filterBy="idPersona.nombre"
+                                filterPlaceholder="Buscar funcionarios"
+                                emptyFilterMessage="No existen coincidencias"
+                                [showClear]="true"                                
+                                class="p-inputtext-sm capitalize mt-1"
+                                appendTo="body"></p-dropdown>
+                            <label for="float-label" class="text-lg font-bold text-800"><i class="text-red-500">*</i>Funcionario</label>
+                        </span>
+                        <small class="p-error block mt-2" *ngIf="formInstructivo.controls['idFuncionario'].touched && formInstructivo.get('idFuncionario')?.hasError('required')" >El campo Funcionario es obligatorio</small>
+                    </div>
                     
                     <div class="form-group field mt-6">
+                        <label htmlFor="pdf" class="text-lg font-bold text-800"><span class="text-red-500">*</span> Archivo PDF</label>
                         <p-fileUpload name="pdfFile" chooseLabel="Subir archivo" [showUploadButton]="false" [showCancelButton]="false" (onSelect)="onUpload($event)" [multiple]="false" accept="" [maxFileSize]="1000000">
                             
                         </p-fileUpload>
                     </div>
-  
 
                 </ng-template>
                 <ng-template pTemplate="footer">

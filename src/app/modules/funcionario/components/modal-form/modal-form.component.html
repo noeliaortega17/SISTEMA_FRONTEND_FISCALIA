@@ -19,7 +19,18 @@
                                 filterPlaceholder="Buscar personas"
                                 emptyFilterMessage="No existen coincidencias"
                                 [showClear]="true"
-                                appendTo="body"></p-dropdown>
+                                appendTo="body">
+                                <ng-template pTemplate="selectedItem">
+                                    <div class="flex align-items-center gap-2" *ngIf="funcionario.idPersona">
+                                        <div>{{ funcionario.idPersona.nombre }} {{ funcionario.idPersona.apellidoPat }} {{ funcionario.idPersona.apellidoMat }}</div>
+                                    </div>
+                                </ng-template>
+                                <ng-template let-persona pTemplate="item">
+                                    <div class="flex align-items-center gap-2">
+                                        <div>{{ persona.nombre }} {{ persona.apellidoPat }} {{ persona.apellidoMat }}</div>
+                                    </div>
+                                </ng-template>
+                            </p-dropdown>
                             <label for="float-label" class="text-lg font-bold text-800"><i class="text-red-500">*</i> Persona</label>
                         </span>
                         <small class="p-error block mt-2" *ngIf="formFuncionario.controls['idPersona'].touched && formFuncionario.get('idPersona')?.hasError('required')" >El campo Persona es obligatorio</small>

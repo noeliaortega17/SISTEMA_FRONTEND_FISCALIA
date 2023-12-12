@@ -1,4 +1,4 @@
-
+import { Funcionario } from "./Funcionario";
 export class Instructivo  {
     activo:              boolean | null = null;
     fecha_creacion:      string | null = null;
@@ -13,4 +13,5 @@ export class Instructivo  {
     fiscaliaGeneral:     boolean| null = null;
     fechaInstructivo:    Date   | null = null;
     pdf:    string   | null = null;
+    idFuncionario:         Funcionario | null = null;
 }

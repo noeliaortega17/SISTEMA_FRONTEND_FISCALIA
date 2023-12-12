@@ -22,4 +22,9 @@ export class HelpersService {
         else
             return false;
     }
+
+    formatDate(date: string){
+        let result: string = date.substring(0, 10);
+        return result;
+    }
 }

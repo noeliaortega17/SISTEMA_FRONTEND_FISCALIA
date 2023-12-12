@@ -27,6 +27,7 @@ export class ModalFormComponent {
   private funcionarioService = inject(FuncionarioService);
 
   personas = signal<Person[]>([]);
+  selectedPerson: Person = new Person;
   cargos = signal<Cargo[]>([]);
   unidades = signal<Unidad[]>([]);
   

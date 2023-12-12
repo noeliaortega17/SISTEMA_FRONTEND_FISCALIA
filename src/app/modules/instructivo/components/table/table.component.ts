@@ -16,7 +16,7 @@ export class TableComponent {
   @Output() rowSelected = new EventEmitter<Instructivo>();
 
   private instructivoService = inject(InstructivoService);
-  private helpersService = inject(HelpersService);
+  helpersService = inject(HelpersService);
 
   instructivos = signal<Instructivo[]>([]);
   selectedInstructivo = signal<Instructivo>(new Instructivo);
